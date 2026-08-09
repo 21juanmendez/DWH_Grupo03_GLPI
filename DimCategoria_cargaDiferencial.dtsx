@@ -11,39 +11,11 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimCategoria_cargaDiferencial"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{F074C1E6-15E2-4D88-8C64-B1F2FDC3B4B2}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{7AB9C802-01A3-4C18-9F60-7E9C838FDD93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conexión de datos 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{C6B3C06F-845E-4AB5-9393-5B4AFE11E0C2}"
-      DTS:ObjectName="Conexión de datos 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{C6B3C06F-845E-4AB5-9393-5B4AFE11E0C2}Conexión de datos 1;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{46AEE96F-46F8-4ABE-A3DD-807C73BA5B11}"
-      DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=glpi-proyecto03.duckdns.org;uid=glpiuser;Driver={MySQL ODBC 26.7 Unicode Driver};port=3306;database=glpidb;charset=utf8mb4;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB16c7pQldfGt+62uTZBjiOYTe+EicQ0v+ErknD1HgnxAAAAAAOgAAAAAIAACAAAAAxn6XjeVWbrCaCj8Ci+sjYnBtyS6FjcjsPi4MLE3F3tyAAAADBV8E0I1mCmnX5X5iMj64lro6xT8W+EGxFyVZuEiGJVUAAAABkeVuU1w75hlAO3FgQeU6LkBnTeNBVtMCP7bWyhlAcS3wT9rWOPQEZwWUPSEvV8j9DK6MrpLNsMdfp1kVLM7F2</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -86,8 +58,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\CMD_DimCategoria_Update.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
-                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -248,19 +220,19 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[CategoriaId_origen]"
-                      cachedDataType="i8"
+                      cachedDataType="ui4"
                       cachedName="CategoriaId_origen"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]" />
                     <inputColumn
                       refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Categoria]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Categoria"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]" />
                     <inputColumn
                       refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[CategoriaCompleta]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="CategoriaCompleta"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]" />
                     <inputColumn
@@ -271,7 +243,7 @@
                     <inputColumn
                       refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Codigo]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Codigo"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]" />
                   </inputColumns>
@@ -477,8 +449,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\DST_DimCategoria_Insert.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
-                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -661,8 +633,8 @@ where [refTable].[CategoriaId_origen] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\LKP_DimCategoria.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
-                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -845,8 +817,8 @@ ORDER BY c.id;</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Connections[IDbConnection]"
-                  connectionManagerID="{0891B01C-E8B7-48DE-A18B-02B47D012C5C}:invalid"
-                  connectionManagerRefId="{0891B01C-E8B7-48DE-A18B-02B47D012C5C}:invalid"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -857,7 +829,7 @@ ORDER BY c.id;</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaId_origen]"
@@ -870,7 +842,7 @@ ORDER BY c.id;</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
                       name="Categoria"
                       truncationRowDisposition="FailComponent" />
@@ -880,7 +852,7 @@ ORDER BY c.id;</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaCompleta]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]"
                       name="CategoriaCompleta"
                       truncationRowDisposition="FailComponent" />
@@ -899,7 +871,7 @@ ORDER BY c.id;</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Codigo]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]"
                       name="Codigo"
                       truncationRowDisposition="FailComponent" />
@@ -908,17 +880,17 @@ ORDER BY c.id;</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       name="CategoriaId_origen" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Categoria" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="CategoriaCompleta" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
@@ -927,7 +899,7 @@ ORDER BY c.id;</property>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Codigo]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Codigo" />
                   </externalMetadataColumns>
                 </output>
@@ -938,19 +910,19 @@ ORDER BY c.id;</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaId_origen]"
                       name="CategoriaId_origen" />
                     <outputColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
                       name="Categoria" />
                     <outputColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaCompleta]"
                       name="CategoriaCompleta" />
                     <outputColumn
@@ -961,7 +933,7 @@ ORDER BY c.id;</property>
                     <outputColumn
                       refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Codigo]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Codigo]"
                       name="Codigo" />
                     <outputColumn
@@ -1041,7 +1013,7 @@ ORDER BY c.id;</property>
           Id="Package\Data Flow Task\DST_DimCategoria_Insert"
           TopLeft="708.999989435077,193.999997109175" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="176,41.6"
           Id="Package\Data Flow Task\SRC_GLPI_itilcategories"
           TopLeft="287.999995708466,76.9999988526106" />
         <NodeLayout
@@ -1088,13 +1060,13 @@ ORDER BY c.id;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
-          TopLeft="384.799995708466,118.599998852611">
+          TopLeft="375.999995708466,118.599998852611">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-163.199998033047,40.3999987781044"
+              EndConnector="-154.399998033047,40.3999987781044"
               Start="0,0"
-              End="-163.199998033047,32.8999987781044">
+              End="-154.399998033047,32.8999987781044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1105,13 +1077,13 @@ ORDER BY c.id;</property>
                     Point2="0,20.1999993890522"
                     Point3="-4,20.1999993890522" />
                   <mssgle:LineSegment
-                    End="-159.199998033047,20.1999993890522" />
+                    End="-150.399998033047,20.1999993890522" />
                   <mssgle:CubicBezierSegment
-                    Point1="-159.199998033047,20.1999993890522"
-                    Point2="-163.199998033047,20.1999993890522"
-                    Point3="-163.199998033047,24.1999993890522" />
+                    Point1="-150.399998033047,20.1999993890522"
+                    Point2="-154.399998033047,20.1999993890522"
+                    Point3="-154.399998033047,24.1999993890522" />
                   <mssgle:LineSegment
-                    End="-163.199998033047,32.8999987781044" />
+                    End="-154.399998033047,32.8999987781044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1195,6 +1167,42 @@ ORDER BY c.id;</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DST_DimCategoria_Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\LKP_DimCategoria">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\SRC_GLPI_itilcategories">
     <Properties>

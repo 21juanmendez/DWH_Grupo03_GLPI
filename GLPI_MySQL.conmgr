@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="GLPI_MySQL"
+  DTS:DTSID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=26.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::GlpiDatabase]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::GlpiPassword]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::GlpiServer]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::GlpiUser]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;database=glpidb;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1"
+        p4:Salt="GWRJ3VtVyf8="
+        p4:IV="j47kyy2H0AU8WAKCPA1YcQ=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">JWADneRZhvTHWLH5B31L+lseuLdkp+KmnAj9tDw8GaufnbN7REWfv6+LHYzAfemhBoHHVKizreBrzJ9e/mFvevq12+EfOFAangVerXakICK0ukhBjVcDu4P/Xs8TJbyJdh8USrboeP/xv/GERbGWog4niUDhbYKIPyA2EtYl/5g=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

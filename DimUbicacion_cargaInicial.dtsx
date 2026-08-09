@@ -11,39 +11,11 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimCategoria_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{1DE7D694-70BF-4652-A4AA-59973B4282F7}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{8B5D4CB6-01D7-474D-B260-BA2387E1DDB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conexión de datos]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{22BA1FD3-FD8F-429C-81EB-D3C6EA52F573}"
-      DTS:ObjectName="Conexión de datos">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCategoria_cargaInicial-{22BA1FD3-FD8F-429C-81EB-D3C6EA52F573}Conexión de datos;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{BEE2AEFD-5D3A-4581-A935-62F50BE58951}"
-      DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=glpi-proyecto03.duckdns.org;uid=glpiuser;Driver={MySQL ODBC 26.7 Unicode Driver};port=3306;database=glpidb;charset=utf8mb4;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADPAb9nuIW23ZmfbAyMWeKw1jIV5ZYN5sE77WOqUMI9IgAAAAAOgAAAAAIAACAAAAC63P1dlxsVDvaUEgS+9Yq0asZWi5d4dnHFRwo2ia+WziAAAAB2UjoixGORspoZhSwTSlE2dm2u/O6arK1YKl7J97YnZUAAAACFlpIvGUHvORJvIkfGbsvCnoWb19qXqh1yLUREK1HjeXsOKkGfys+IWUFMzycWfRoXxKlh/C3pW/MblGifBt9A</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -59,8 +31,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{22BA1FD3-FD8F-429C-81EB-D3C6EA52F573}"
-          SQLTask:SqlStatementSource="DELETE FROM DimUbicacion;&#xA;DBCC CHECKIDENT('DimUbicacion', RESEED, 0);&#xA;&#xA;SET IDENTITY_INSERT DimUbicacion ON;&#xA;INSERT INTO DimUbicacion (UbicacionKey, UbicacionId_origen, Ubicacion, UbicacionCompleta,&#xA;Edificio, Sala, Ciudad, Estado, Pais)&#xA;VALUES (-1, -1, 'Sin ubicacion', 'Sin ubicacion', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');&#xA;SET IDENTITY_INSERT DimUbicacion OFF;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
+          SQLTask:SqlStatementSource="DELETE FROM DimUbicacion;&#xA;DBCC CHECKIDENT('DimUbicacion', RESEED, 0);&#xA;&#xA;SET IDENTITY_INSERT DimUbicacion ON;&#xA;INSERT INTO DimUbicacion (UbicacionKey, UbicacionId_origen, Ubicacion, UbicacionCompleta,&#xA;Edificio, Sala, Ciudad, Estado, Pais)&#xA;VALUES (-1, -1, 'Sin ubicacion', 'Sin ubicacion', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');&#xA;SET IDENTITY_INSERT DimUbicacion OFF;&#xA;DBCC CHECKIDENT('DimUbicacion', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -136,8 +108,8 @@
               <connections>
                 <connection
                   refId="Package\Llenar DimUbicacion\DST_DimCategoria_Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conexión de datos]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -306,49 +278,49 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[UbicacionId_origen]"
-                      cachedDataType="i8"
+                      cachedDataType="ui4"
                       cachedName="UbicacionId_origen"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[UbicacionId_origen]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Ubicacion]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Ubicacion"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[UbicacionCompleta]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="UbicacionCompleta"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[UbicacionCompleta]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Edificio]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Edificio"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Edificio]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Sala]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Sala"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Sala]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Ciudad]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Ciudad"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Ciudad]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Estado]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Estado"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Estado]" />
                     <inputColumn
                       refId="Package\Llenar DimUbicacion\DTC TIPOS.Inputs[Data Conversion Input].Columns[Pais]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Pais"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Pais]" />
                   </inputColumns>
@@ -615,8 +587,8 @@ ORDER BY l.id</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-                  connectionManagerRefId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -627,7 +599,7 @@ ORDER BY l.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[UbicacionId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[UbicacionId_origen]"
@@ -640,7 +612,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Ubicacion]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]"
                       name="Ubicacion"
                       truncationRowDisposition="FailComponent" />
@@ -650,7 +622,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[UbicacionCompleta]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[UbicacionCompleta]"
                       name="UbicacionCompleta"
                       truncationRowDisposition="FailComponent" />
@@ -660,7 +632,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Edificio]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Edificio]"
                       name="Edificio"
                       truncationRowDisposition="FailComponent" />
@@ -670,7 +642,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Sala]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Sala]"
                       name="Sala"
                       truncationRowDisposition="FailComponent" />
@@ -680,7 +652,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
                       name="Ciudad"
                       truncationRowDisposition="FailComponent" />
@@ -690,7 +662,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Estado]"
                       name="Estado"
                       truncationRowDisposition="FailComponent" />
@@ -700,7 +672,7 @@ ORDER BY l.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].Columns[Pais]"
                       name="Pais"
                       truncationRowDisposition="FailComponent" />
@@ -709,42 +681,42 @@ ORDER BY l.id</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[UbicacionId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       name="UbicacionId_origen" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Ubicacion]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Ubicacion" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[UbicacionCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="UbicacionCompleta" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Edificio]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Edificio" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Sala]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Sala" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Ciudad" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Estado" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Pais" />
                   </externalMetadataColumns>
                 </output>
@@ -755,49 +727,49 @@ ORDER BY l.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[UbicacionId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[UbicacionId_origen]"
                       name="UbicacionId_origen" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Ubicacion]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Ubicacion]"
                       name="Ubicacion" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[UbicacionCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[UbicacionCompleta]"
                       name="UbicacionCompleta" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Edificio]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Edificio]"
                       name="Edificio" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Sala]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Sala]"
                       name="Sala" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
                       name="Ciudad" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
                       name="Estado" />
                     <outputColumn
                       refId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimUbicacion\Leer base de datos GLPI y tabla glpi_locations.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
                       name="Pais" />
                     <outputColumn
