@@ -84,8 +84,8 @@ GO
 set identity_insert DimUsuario on
 insert into DimUsuario (UsuarioKey, UsuarioId_origen, Login, NombreCompleto, Perfil,
 Telefono, Ubicacion, Titulo, Categoria, Activo, FechaInicio, FechaFin, EsVigente) values
-(-1, -1, 'Sin asignar', 'Sin asignar', 'Sin asignar', 'No disponible', 'Sin asignar',
-'Sin asignar', 'Sin asignar', 'Si', '1900-01-01', '9999-12-31', 'Si')
+(-1, -1, 'Sin asignar', 'Sin asignar', 'Sin perfil', 'No disponible', 'Sin ubicacion',
+'Sin titulo', 'Sin categoria', 'Si', '1900-01-01', '9999-12-31', 'Si')
 set identity_insert DimUsuario off
 GO
 
