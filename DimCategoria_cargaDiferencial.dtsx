@@ -5,27 +5,42 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="WILLIAM"
   DTS:CreatorName="William\William10"
-  DTS:DTSID="{CE9714D6-959E-4E0B-95E1-244EBC0371D2}"
+  DTS:DTSID="{7D540C00-4F91-42D3-BD8C-0C90E63DA0F3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="DimCategoria_cargaDiferencial"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{6E9F8B3E-4168-480D-A9A8-2C367ABF1119}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{A28A5F0D-89F7-47D8-B456-E2926E8BE49C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Conexión de datos 1]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{26A11B42-F5FC-4DE0-B4FA-D4CA5E6B5C7E}"
+      DTS:DTSID="{A6A3ABC3-88C2-49B7-AB07-B62FDB30B9C7}"
       DTS:ObjectName="Conexión de datos 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{26A11B42-F5FC-4DE0-B4FA-D4CA5E6B5C7E}Conexión de datos 1;Auto Translate=False;" />
+          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A6A3ABC3-88C2-49B7-AB07-B62FDB30B9C7}Conexión de datos 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{82FB8185-741F-47E7-B57D-C3C8D11700DF}"
+      DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=glpi-proyecto03.duckdns.org;uid=glpiuser;Driver={MySQL ODBC 26.7 Unicode Driver};port=3306;database=glpidb;charset=utf8mb4;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACtZ73GQhp2e9e8UfXFUTdbzP5vRhPU9+G1QyTZ92tUwAAAAAAOgAAAAAIAACAAAABPUyVw8xidm42fSTRaHwUj7ZDsoGgFdsC0ymXqTHVEviAAAABmfzqeQWyKvWvROBWps0Tqxrb2gGnu9JBaZPpvTBJIokAAAADFR6Ze4AgwyLNRp3g+tV5l61+Pd4SidEyhF215MuX7qJI/459zINwKPleM0lLXLZeKal+izAlCtMbyeyMlNTHX</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -35,7 +50,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{0A0F2DC7-6FC2-44B5-AEC1-FB2A34544571}"
+      DTS:DTSID="{BB8B190D-1A99-4201-A2B1-10188B8D3E40}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task">
@@ -71,8 +86,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\CMD_DimCategoria_Update.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -462,8 +477,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\DST_DimCategoria_Insert.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -646,8 +661,8 @@ where [refTable].[CategoriaId_origen] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\LKP_DimCategoria.Connections[OleDbConnection]"
-                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
+                  connectionManagerRefId="{0903737D-58C1-4AA1-9651-AC58B028E358}:invalid"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -830,8 +845,8 @@ ORDER BY c.id;</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Connections[IDbConnection]"
-                  connectionManagerID="{0891B01C-E8B7-48DE-A18B-02B47D012C5C}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
+                  connectionManagerID="{0891B01C-E8B7-48DE-A18B-02B47D012C5C}:invalid"
+                  connectionManagerRefId="{0891B01C-E8B7-48DE-A18B-02B47D012C5C}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1018,55 +1033,25 @@ ORDER BY c.id;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Data Flow Task\SRC_GLPI_itilcategories"
-          TopLeft="287.999995708466,76.9999988526106" />
-        <NodeLayout
-          Size="131.2,41.6"
-          Id="Package\Data Flow Task\DCV_Tipos"
-          TopLeft="155.999997675419,158.999997630715" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
-          TopLeft="384.799995708466,118.599998852611">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-163.199998033047,40.3999987781048"
-              Start="0,0"
-              End="-163.199998033047,32.8999987781048">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.1999993890524" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.1999993890524"
-                    Point2="0,20.1999993890524"
-                    Point3="-4,20.1999993890524" />
-                  <mssgle:LineSegment
-                    End="-159.199998033047,20.1999993890524" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-159.199998033047,20.1999993890524"
-                    Point2="-163.199998033047,20.1999993890524"
-                    Point3="-163.199998033047,24.1999993890524" />
-                  <mssgle:LineSegment
-                    End="-163.199998033047,32.8999987781048" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="167.2,53.6"
+          Id="Package\Data Flow Task\LKP_DimCategoria"
+          TopLeft="414.999993816018,165.599997556209" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\Data Flow Task\DST_DimCategoria_Insert"
           TopLeft="708.999989435077,193.999997109175" />
         <NodeLayout
-          Size="167.2,53.6"
-          Id="Package\Data Flow Task\LKP_DimCategoria"
-          TopLeft="414.999993816018,165.599997556209" />
+          Size="193.6,41.6"
+          Id="Package\Data Flow Task\SRC_GLPI_itilcategories"
+          TopLeft="287.999995708466,76.9999988526106" />
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\Data Flow Task\CMD_DimCategoria_Update"
+          TopLeft="613.999990850687,65.199999254942" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\DCV_Tipos"
+          TopLeft="155.999997675419,158.999997630715" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
           TopLeft="287.199997675419,179.799997630715">
@@ -1093,6 +1078,40 @@ ORDER BY c.id;</property>
                     Point3="67.8999980702997,12.599999925494" />
                   <mssgle:LineSegment
                     End="120.299996140599,12.599999925494" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+          TopLeft="384.799995708466,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-163.199998033047,40.3999987781044"
+              Start="0,0"
+              End="-163.199998033047,32.8999987781044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1999993890522"
+                    Point2="0,20.1999993890522"
+                    Point3="-4,20.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-159.199998033047,20.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159.199998033047,20.1999993890522"
+                    Point2="-163.199998033047,20.1999993890522"
+                    Point3="-163.199998033047,24.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-163.199998033047,32.8999987781044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1137,10 +1156,6 @@ ORDER BY c.id;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="210.4,41.6"
-          Id="Package\Data Flow Task\CMD_DimCategoria_Update"
-          TopLeft="613.999990850687,65.199999254942" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
           TopLeft="498.599993816018,165.599997556209">
