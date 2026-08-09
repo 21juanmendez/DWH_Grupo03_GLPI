@@ -11,44 +11,11 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimPrioridad_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{E98A3840-BC96-46F6-B996-90F3FC3230F1}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{6BFC0A2D-557E-4A59-BA88-F6A1927CF628}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=26.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
-      DTS:DTSID="{B839BA26-6389-4B53-8A4F-4087708D10ED}"
-      DTS:ObjectName="32.196.220.213.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;database=glpidb;">
-          <DTS:Password
-            DTS:Name="password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADQuagV7/mwjz/X8Zc25biCIWZOUvYd1ZLmHNeJ/oC9nQAAAAAOgAAAAAIAACAAAACz4Ptc0rQQd6IazQw4uLQkSS3dz2uk0m3J7bbJHQHj+SAAAAB65Sit6H6MOQnf6xq7RjR/utp/AueaTwJaSQDCdS+zekAAAADb90wwTaX2vBHc4XeWE3lzCeQKYqu3xJt7gZ78Xrqems42O7tykEE9tNXtvWYniuc5t+CP60BOxmeZml5Bkw4l</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{A5639839-012E-4748-879B-9CC4F3A081C6}"
-      DTS:ObjectName="JOSE.DWH_Grupo03_GLPI.sa">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=JOSE;User ID=sa;Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Persist Security Info=True;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-DimSLA_cargaInicial-{A5639839-012E-4748-879B-9CC4F3A081C6}JOSE.DWH_Grupo03_GLPI.sa;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD1cYjNPn0mFB5I3PJDiNp86/zUBnoE03w9KA1EX00ugAAAAAAOgAAAAAIAACAAAADdBxG6CMpDxfc2EH1mPVqr+iSKKcNZ4NbeoHzOZuDKvyAAAACXCwpRxzYvSW+w69W6h4+hxf1s9hNodwxLYGLEUffkUEAAAAA6c7lq61W/Ck+OgdXo3MhPxNi9FOxTEf1XHCCPdOFTmTSGgsx98fnyzYeGLn1iZzC8ZSmvB25IPUTJ/cleoJjr</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -64,7 +31,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A5639839-012E-4748-879B-9CC4F3A081C6}"
+          SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
           SQLTask:SqlStatementSource="DELETE FROM DimPrioridad; &#xA;DBCC CHECKIDENT('DimPrioridad', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -269,8 +236,8 @@ ORDER BY u.n, i.n, p.n;</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
-                  connectionManagerRefId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -370,11 +337,11 @@ ORDER BY u.n, i.n, p.n;</property>
               </outputs>
             </component>
             <component
-              refId="Package\Llenar DimPrioridad\Llenar DimSLA"
+              refId="Package\Llenar DimPrioridad\Llenar DimPrioridad"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Llenar DimSLA"
+              name="Llenar DimPrioridad"
               usesDispositions="true"
               version="4">
               <properties>
@@ -427,65 +394,65 @@ ORDER BY u.n, i.n, p.n;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
-                  connectionManagerRefId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
+                  refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]"
+                  refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Urgencia_conv]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].Columns[Urgencia_conv]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="Urgencia_conv"
-                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
                       lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Urgencia_conv]" />
                     <inputColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Impacto_conv]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].Columns[Impacto_conv]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="Impacto_conv"
-                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
                       lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Impacto_conv]" />
                     <inputColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Prioridad_conv]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].Columns[Prioridad_conv]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="Prioridad_conv"
-                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
                       lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Prioridad_conv]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[PrioridadKey]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[PrioridadKey]"
                       dataType="i4"
                       name="PrioridadKey" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
                       codePage="1252"
                       dataType="str"
                       length="15"
                       name="Urgencia" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
                       codePage="1252"
                       dataType="str"
                       length="15"
                       name="Impacto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
                       codePage="1252"
                       dataType="str"
                       length="15"
@@ -495,22 +462,22 @@ ORDER BY u.n, i.n, p.n;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -522,7 +489,7 @@ ORDER BY u.n, i.n, p.n;</property>
           <paths>
             <path
               refId="Package\Llenar DimPrioridad.Paths[Data Conversion Output]"
-              endId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]"
+              endId="Package\Llenar DimPrioridad\Llenar DimPrioridad.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output]" />
             <path
@@ -584,9 +551,9 @@ ORDER BY u.n, i.n, p.n;</property>
                     Point2="0,25.5666663442385"
                     Point3="4,25.5666663442385" />
                   <mssgle:LineSegment
-                    End="96.266659745906,25.5666663442385" />
+                    End="96.2666597459059,25.5666663442385" />
                   <mssgle:CubicBezierSegment
-                    Point1="96.266659745906,25.5666663442385"
+                    Point1="96.2666597459059,25.5666663442385"
                     Point2="100.266659745906,25.5666663442385"
                     Point3="100.266659745906,29.5666663442385" />
                   <mssgle:LineSegment
@@ -608,10 +575,6 @@ ORDER BY u.n, i.n, p.n;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Llenar DimPrioridad\Llenar DimSLA"
-          TopLeft="429.999976505837,201.933331929114" />
-        <NodeLayout
           Size="193.6,41.6"
           Id="Package\Llenar DimPrioridad\Leer base de datos GLPI"
           TopLeft="131.666659472718,38.1333330681589" />
@@ -619,6 +582,10 @@ ORDER BY u.n, i.n, p.n;</property>
           Size="156,41.6"
           Id="Package\Llenar DimPrioridad\Data Conversion"
           TopLeft="328.333315393992,113.533332543837" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Llenar DimPrioridad\Llenar DimPrioridad"
+          TopLeft="429.999976505837,201.933331929114" />
         <EdgeLayout
           Id="Package\Llenar DimPrioridad.Paths[Salida de origen de ADO NET]"
           TopLeft="228.466659472718,79.7333330681589">
@@ -659,26 +626,26 @@ ORDER BY u.n, i.n, p.n;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="97.666661111845,46.7999993852774"
+              EndConnector="108.866661111845,46.799999385277"
               Start="0,0"
-              End="97.666661111845,39.2999993852774">
+              End="108.866661111845,39.299999385277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.3999996926387" />
+                    End="0,19.3999996926385" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.3999996926387"
-                    Point2="0,23.3999996926387"
-                    Point3="4,23.3999996926387" />
+                    Point1="0,19.3999996926385"
+                    Point2="0,23.3999996926385"
+                    Point3="4,23.3999996926385" />
                   <mssgle:LineSegment
-                    End="93.666661111845,23.3999996926387" />
+                    End="104.866661111845,23.3999996926385" />
                   <mssgle:CubicBezierSegment
-                    Point1="93.666661111845,23.3999996926387"
-                    Point2="97.666661111845,23.3999996926387"
-                    Point3="97.666661111845,27.3999996926387" />
+                    Point1="104.866661111845,23.3999996926385"
+                    Point2="108.866661111845,23.3999996926385"
+                    Point3="108.866661111845,27.3999996926385" />
                   <mssgle:LineSegment
-                    End="97.666661111845,39.2999993852774" />
+                    End="108.866661111845,39.299999385277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -691,7 +658,15 @@ ORDER BY u.n, i.n, p.n;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimPrioridad\Llenar DimSLA">
+    design-time-name="Package\Llenar DimPrioridad\Leer base de datos GLPI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimPrioridad\Llenar DimPrioridad">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -700,14 +675,6 @@ ORDER BY u.n, i.n, p.n;</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimPrioridad\Leer base de datos GLPI">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
