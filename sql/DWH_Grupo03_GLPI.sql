@@ -56,14 +56,12 @@ NombreMes varchar(15) not null,
 Dia int not null,
 NombreDia varchar(15) not null,
 EsFinDeSemana varchar(3) not null,
-SemanaAnio int not null,
-AnioFiscal int not null,
-TrimestreFiscal varchar(2) not null)
+SemanaAnio int not null)
 GO
 
 --Fila bolson: tickets que aun no tienen esa fecha (no resuelto/cerrado)
 insert into DimFecha values
-(-1, '1900-01-01', 0, 'NA', 0, 'Pendiente', 0, 'Pendiente', 'No', 0, 0, 'NA')
+(99991231, '9999-12-31', 9999, 'NA', 12, 'Pendiente', 31, 'Pendiente', 'No', 0)
 GO
 
 create table DimUsuario
@@ -78,10 +76,6 @@ Titulo varchar(255) not null,
 Categoria varchar(255) not null,
 Activo varchar(3) not null,
 FechaInicio date not null default getdate(),
---FechaFin: NOT NULL con fecha centinela (9999-12-31 = version vigente).
---Confirmado con el Excel de mapeo (Mapeo_De_Tablas_Grupo03_GLPII.xlsx, pestana
---DimUsuario: NULL?=N, Default Value=9999-12-31). Consistente con la regla de la
---clase de que ninguna dimension acepta nulos.
 FechaFin date not null default '9999-12-31',
 EsVigente varchar(3) not null)
 GO
@@ -162,33 +156,22 @@ EsAsignable) values
 set identity_insert DimGrupo off
 GO
 
---Catalogos fijos de la aplicacion (se cargan una sola vez, no cambian).
---DimTipo, DimEstado y DimPrioridad NO llevan columna de llave de negocio
---(columna origen) separada: se verifico contra el Excel de mapeo y contra la base
---de datos real de GLPI (SHOW TABLES LIKE '%type%' / '%status%') que estos
---valores no existen como tabla en el origen, son enums directos de
---glpi_tickets. Sin tabla de origen que rastrear, el codigo de GLPI ES la
---llave subrogada, igual que en DimFecha.
-
 create table DimTipo
-(TipoKey int primary key identity(1,1), --Llave surrogada (SK) = glpi_tickets.type
+(TipoKey int primary key identity(1,1),
 Tipo varchar(20) not null)
 GO
 
---Sin IDENTITY_INSERT: se deja que TipoKey se autoasigne 1, 2 en el mismo orden
 insert into DimTipo (Tipo) values
 ('Incidencia'),
 ('Requerimiento')
 GO
 
 create table DimEstado
-(EstadoKey int primary key identity(1,1), --Llave surrogada (SK) = glpi_tickets.status
+(EstadoKey int primary key identity(1,1),
 Estado varchar(30) not null,
 EsEstadoFinal varchar(3) not null)
 GO
 
---Texto y bandera EsEstadoFinal segun el Excel de mapeo: "Si" si codigo en (5,6)
---Sin IDENTITY_INSERT: se deja que EstadoKey se autoasigne 1..6 en el mismo orden
 insert into DimEstado (Estado, EsEstadoFinal) values
 ('Nuevo', 'No'),
 ('En curso (asignado)', 'No'),
@@ -198,13 +181,8 @@ insert into DimEstado (Estado, EsEstadoFinal) values
 ('Cerrado', 'Si')
 GO
 
---DimPrioridad es una junk dimension real (combinacion urgencia x impacto x
---prioridad de GLPI). Verificado contra la base real: un ticket con
---urgencia=4, impacto=3, prioridad=4 prueba que NO es una escala 1:1 simple.
---Segun el Excel ("una fila por combinacion distinta OBSERVADA"), la tabla
---queda vacia aqui: el ETL la va llenando conforme procesa tickets reales.
 create table DimPrioridad
-(PrioridadKey int primary key identity(1,1), --Llave surrogada (SK), autonumerica por combinacion nueva
+(PrioridadKey int primary key identity(1,1),
 Urgencia varchar(15) not null,
 Impacto varchar(15) not null,
 Prioridad varchar(15) not null)
