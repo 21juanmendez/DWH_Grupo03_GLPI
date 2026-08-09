@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimUsuario_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{4FE2E882-DEA0-41E3-A584-408D21620AD1}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{B4537100-A768-4C4D-B468-BEC5ABAE2F7E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAADzUUQI6Z5H3KudjZLrJBbGx9iffPLyF1NA/38i71FbwAAAAAOgAAAAAIAACAAAAA5Tj9X7A5u04MLqBkV0+YkAT6+UEqdVK/RQfudkobmQyAAAAAA8HOFZUEmwx29vs7k7Mh1D4DaFerNpaeGWTbHTso6n0AAAABadpqO3n3jn3fwovo4H88+agAHr+zIj5O9KBxlk00EXr8tMLxHuHxCNhxr+vX6lQlkNi1pR+JDRpFEJ9rtZ/fH</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACZQFaD0stdeBv6xSBRgj7IxnQlpZ5WgNsvK8c6q8Wy+wAAAAAOgAAAAAIAACAAAABkJi2nfkBxFiVocXKAtLDEgu9KfA5OOqOhlZxbgRYyEyAAAABSR7ckF8bCz0IDNdPQ0pVja3aIf2vd7deCLjBdLU9hOkAAAAAb0/tHJwVYFIoMz0o+Q0h0W5P685/yHCRQ7K/e4/l2eCntaA+6WO0BB35QC6njjuJ+yigEQpPKGKWdQHRu4TdB</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -44,7 +44,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADNaJtKZlnzRcihcELoCxt4FfaPpupEUqqDkv3jfp6qtAAAAAAOgAAAAAIAACAAAACNw7wEBfFdofzbWtkysh5Tahzyn0sk/TVZ9bkBy54enCAAAADicrn+ThuHRm1bA8GpFAWk1YXApAy7tPql/Zdz9ARgsUAAAACm1roG7SREZKBmhWdUsTINaWH1uL+Ob4TC6ignY/i/Ii4VOYRzVp2dtYd9hsgrOmJHIfyi5yo90GKi0PRekWfb</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADeBNctCody4F0yUu5yztd1GFLq0KqIhsB/yy8CecA0XwAAAAAOgAAAAAIAACAAAAA0zRwMfL/HX1VPY1WiONzlAluj2w48+X0bTXqZ+CsiZCAAAADWzFU7Q0Hk5X5tNopcPumYx4Q10xfRCn37AGFJEU0eb0AAAABut+zbdP1tMTiALLFDM77qJ7+CfAXc8pDOqv2vkOAHUepX7e55PViVk0Kv8itmv1WWmEnIRozaQ0zCzu4cPPGC</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -65,7 +65,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{CFA2E129-7EA1-4B75-85A6-B7D090DF5BCC}"
-          SQLTask:SqlStatementSource="DELETE FROM DimUsuario;&#xA;DBCC CHECKIDENT('DimUsuario', RESEED, 0);&#xA;&#xA;SET IDENTITY_INSERT DimUsuario ON;&#xA;INSERT INTO DimUsuario (UsuarioKey, UsuarioId_origen, Login, NombreCompleto, Perfil,&#xA;Telefono, Ubicacion, Titulo, Categoria, Activo, FechaInicio, FechaFin, EsVigente)&#xA;VALUES&#xA;(-1, -1, 'Sin asignar', 'Sin asignar', 'Sin perfil', 'No disponible', 'Sin ubicacion',&#xA;'Sin titulo', 'Sin categoria', 'Si', '1900-01-01', '9999-12-31', 'Si');&#xA;SET IDENTITY_INSERT DimUsuario OFF;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM DimUsuario WHERE UsuarioKey &gt; 0;&#xA;DBCC CHECKIDENT('DimUsuario', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1109,13 +1109,13 @@ ORDER BY g.id;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Llenar DimUsuario"
-          TopLeft="327.499982106189,204.533331911034" />
-        <NodeLayout
           Size="216.8,41.6"
           Id="Package\Limpieza de tabla DimUsuario"
           TopLeft="164.999990984798,88.3999993852774" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Llenar DimUsuario"
+          TopLeft="327.499982106189,204.533331911034" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="273.399990984798,129.999999385277">
