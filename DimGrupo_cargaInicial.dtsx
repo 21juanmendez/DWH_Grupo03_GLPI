@@ -5,52 +5,24 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="JUAN-MENDEZ"
   DTS:CreatorName="JUAN-MENDEZ\juann"
-  DTS:DTSID="{A187E13B-AC17-485B-B6C0-E82A5E680A8A}"
+  DTS:DTSID="{5D0B89EE-7EF0-4323-AE77-C717E1C2E133}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
   DTS:ObjectName="DimGrupo_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{AEEF1FD9-A91F-4A05-B2E2-534946245D0C}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{91F098B2-0BD8-4854-9F18-AAB69AA72C06}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conexión de datos]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{864CCB20-D709-4AB3-B3E2-67C79C09F779}"
-      DTS:ObjectName="Conexión de datos">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCategoria_cargaInicial-{864CCB20-D709-4AB3-B3E2-67C79C09F779}Conexión de datos;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{C011D10C-EF19-4261-80E3-FD2925CF0A4C}"
-      DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=glpi-proyecto03.duckdns.org;uid=glpiuser;Driver={MySQL ODBC 26.7 Unicode Driver};port=3306;database=glpidb;charset=utf8mb4;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABTkeZekyE4j3y7uon0uu/1f8OaFzBYbPRsxTGFOQn51AAAAAAOgAAAAAIAACAAAADiIQXcx955YQU7Jd1w1/vY02COmGN0oNrfctDRD8a+cSAAAABWKaiNeku2A0EEvDNR3L2BzLU+Gxm2GJ31mb78n9xdhUAAAACpTzAsi6jtEGmNx8rxVRj7o8m58S28vImV3Ff4tLGZx3FMb573nUuTitMhor3oHQ75E1Y0z1nfAFOVfsZ6aorI</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Limpieza de tabla DimGrupo"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{A450F44F-CC06-442C-809E-11C5A4552178}"
+      DTS:DTSID="{EF836C45-626A-415A-820C-434A22B73AD7}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Limpieza de tabla DimGrupo"
@@ -59,7 +31,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{864CCB20-D709-4AB3-B3E2-67C79C09F779}"
+          SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
           SQLTask:SqlStatementSource="DELETE FROM DimGrupo;&#xA;DBCC CHECKIDENT('DimGrupo', RESEED, 0);&#xA;&#xA;SET IDENTITY_INSERT DimGrupo ON;&#xA;INSERT INTO DimGrupo (GrupoKey, GrupoId_origen, Grupo, GrupoCompleto, Nivel, GrupoPadre, EsAsignable)&#xA;VALUES (-1, -1, 'Sin grupo', 'Sin grupo', 0, 'N/A', 'No');&#xA;SET IDENTITY_INSERT DimGrupo OFF;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -67,7 +39,7 @@
       DTS:refId="Package\Llenar DimGrupo"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{46E82475-A08B-40FD-BA7C-6626C56ECF3C}"
+      DTS:DTSID="{849AB9D4-22F7-49FB-AB42-1F8510110A52}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Llenar DimGrupo"
@@ -91,19 +63,19 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Llenar DimGrupo\Data Conversion.Inputs[Data Conversion Input].Columns[GrupoId_origen]"
-                      cachedDataType="i8"
+                      cachedDataType="ui4"
                       cachedName="GrupoId_origen"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoId_origen]" />
                     <inputColumn
                       refId="Package\Llenar DimGrupo\Data Conversion.Inputs[Data Conversion Input].Columns[Grupo]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Grupo"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[Grupo]" />
                     <inputColumn
                       refId="Package\Llenar DimGrupo\Data Conversion.Inputs[Data Conversion Input].Columns[GrupoCompleto]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="GrupoCompleto"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoCompleto]" />
                     <inputColumn
@@ -114,13 +86,13 @@
                     <inputColumn
                       refId="Package\Llenar DimGrupo\Data Conversion.Inputs[Data Conversion Input].Columns[GrupoPadre]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="GrupoPadre"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoPadre]" />
                     <inputColumn
                       refId="Package\Llenar DimGrupo\Data Conversion.Inputs[Data Conversion Input].Columns[EsAsignable]"
                       cachedDataType="wstr"
-                      cachedLength="4"
+                      cachedLength="2"
                       cachedName="EsAsignable"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[EsAsignable]" />
                   </inputColumns>
@@ -348,8 +320,8 @@
               <connections>
                 <connection
                   refId="Package\Llenar DimGrupo\DST_DimGrupo_Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conexión de datos]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -523,8 +495,8 @@ ORDER BY g.id</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-                  connectionManagerRefId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -535,7 +507,7 @@ ORDER BY g.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoId_origen]"
@@ -548,7 +520,7 @@ ORDER BY g.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[Grupo]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[Grupo]"
                       name="Grupo"
                       truncationRowDisposition="FailComponent" />
@@ -558,7 +530,7 @@ ORDER BY g.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoCompleto]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoCompleto]"
                       name="GrupoCompleto"
                       truncationRowDisposition="FailComponent" />
@@ -577,7 +549,7 @@ ORDER BY g.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoPadre]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[GrupoPadre]"
                       name="GrupoPadre"
                       truncationRowDisposition="FailComponent" />
@@ -587,7 +559,7 @@ ORDER BY g.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[EsAsignable]"
-                      length="4"
+                      length="2"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].Columns[EsAsignable]"
                       name="EsAsignable"
                       truncationRowDisposition="FailComponent" />
@@ -596,17 +568,17 @@ ORDER BY g.id</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       name="GrupoId_origen" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[Grupo]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Grupo" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoCompleto]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="GrupoCompleto" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
@@ -615,12 +587,12 @@ ORDER BY g.id</property>
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[GrupoPadre]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="GrupoPadre" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de origen de ADO NET].ExternalColumns[EsAsignable]"
                       dataType="wstr"
-                      length="4"
+                      length="2"
                       name="EsAsignable" />
                   </externalMetadataColumns>
                 </output>
@@ -631,19 +603,19 @@ ORDER BY g.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoId_origen]"
                       name="GrupoId_origen" />
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[Grupo]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[Grupo]"
                       name="Grupo" />
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoCompleto]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoCompleto]"
                       name="GrupoCompleto" />
                     <outputColumn
@@ -654,13 +626,13 @@ ORDER BY g.id</property>
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoPadre]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[GrupoPadre]"
                       name="GrupoPadre" />
                     <outputColumn
                       refId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[EsAsignable]"
                       dataType="wstr"
-                      length="4"
+                      length="2"
                       lineageId="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups.Outputs[Salida de error de origen de ADO NET].Columns[EsAsignable]"
                       name="EsAsignable" />
                     <outputColumn
@@ -701,7 +673,7 @@ ORDER BY g.id</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{DBBA5F09-05C2-4220-AD67-A1B4B55A77DA}"
+      DTS:DTSID="{1FE44285-4294-4B42-B958-48C5E727F0B4}"
       DTS:From="Package\Limpieza de tabla DimGrupo"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
@@ -770,13 +742,13 @@ ORDER BY g.id</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184,41.6"
-          Id="Package\Llenar DimGrupo\DST_DimGrupo_Insert"
-          TopLeft="459.166641578907,143.133332471516" />
-        <NodeLayout
           Size="283.2,41.6"
           Id="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups"
           TopLeft="69.4615374264809,42.8461532076964" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Llenar DimGrupo\DST_DimGrupo_Insert"
+          TopLeft="459.166641578907,143.133332471516" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Llenar DimGrupo\Data Conversion"
@@ -821,26 +793,26 @@ ORDER BY g.id</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="108.166652233237,-16.7999999276801"
+              EndConnector="108.166652233237,-16.79999992768"
               Start="0,0"
-              End="100.666652233237,-16.7999999276801">
+              End="100.666652233237,-16.79999992768">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="50.0833261166184,0" />
+                    End="50.0833261166185,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.0833261166184,0"
-                    Point2="54.0833261166184,0"
-                    Point3="54.0833261166184,-4" />
+                    Point1="50.0833261166185,0"
+                    Point2="54.0833261166185,0"
+                    Point3="54.0833261166185,-4" />
                   <mssgle:LineSegment
-                    End="54.0833261166184,-12.7999999276801" />
+                    End="54.0833261166185,-12.79999992768" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.0833261166184,-12.7999999276801"
-                    Point2="54.0833261166184,-16.7999999276801"
-                    Point3="58.0833261166184,-16.7999999276801" />
+                    Point1="54.0833261166185,-12.79999992768"
+                    Point2="54.0833261166185,-16.79999992768"
+                    Point3="58.0833261166185,-16.79999992768" />
                   <mssgle:LineSegment
-                    End="100.666652233237,-16.7999999276801" />
+                    End="100.666652233237,-16.79999992768" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -853,6 +825,14 @@ ORDER BY g.id</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Llenar DimGrupo\DST_DimGrupo_Insert">
     <Properties>
       <Property>
@@ -862,14 +842,6 @@ ORDER BY g.id</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimGrupo\Leer base de datos GLPI y tabla glpi_groups">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

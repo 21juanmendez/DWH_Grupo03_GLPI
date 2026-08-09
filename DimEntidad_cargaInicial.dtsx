@@ -5,52 +5,24 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="JUAN-MENDEZ"
   DTS:CreatorName="JUAN-MENDEZ\juann"
-  DTS:DTSID="{099277E7-B214-4E01-B786-E7C7F3534445}"
+  DTS:DTSID="{4B00E2A7-37B1-45F6-A24F-034ED0EE45E7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
   DTS:ObjectName="DimEntidad_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{8FE40EAF-D623-40ED-A642-1CCDF3ED071F}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{41DCD2FE-FE41-4FA5-9ACF-A354F72D3D2D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conexión de datos]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{1B7DF97D-A75F-49B3-9598-A26F80C6088F}"
-      DTS:ObjectName="Conexión de datos">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCategoria_cargaInicial-{1B7DF97D-A75F-49B3-9598-A26F80C6088F}Conexión de datos;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{7123C3C2-7AF4-4767-89BD-62DDEA9B498E}"
-      DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=glpi-proyecto03.duckdns.org;uid=glpiuser;Driver={MySQL ODBC 26.7 Unicode Driver};port=3306;database=glpidb;charset=utf8mb4;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD2S9muiNClkKT2MztMPTntI1vjJYN1+stxbkgJKkf7YgAAAAAOgAAAAAIAACAAAADS8avPr7jnNSAuPoR+L4Pe/4kZpLXXVxKhKVvKjp/UXSAAAADvwtRv7Xw0rdyJzPN94hF8GpPthJKheuo0dgF3zHBIJ0AAAACYBDB6yDthy9ct2ZJHaYAgVgFPL9hysOUP4QeTtPd/7M04fwAYrhIHf9BGE3enK4GfPQdTBtrbZ1pIlZVOYplr</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Limpieza de tabla DimEntidad"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{6B25D857-0A24-4879-987D-8C352B80EFEB}"
+      DTS:DTSID="{23D0D696-6DBE-426C-93FA-18E61DEAF46B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Limpieza de tabla DimEntidad"
@@ -59,7 +31,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{1B7DF97D-A75F-49B3-9598-A26F80C6088F}"
+          SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
           SQLTask:SqlStatementSource="DELETE FROM DimEntidad;&#xA;DBCC CHECKIDENT('DimEntidad', RESEED, 0);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -67,7 +39,7 @@
       DTS:refId="Package\Llenar DimEntidad"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{EE09CF58-6E3B-4EE4-AEA9-0C0F3B31AC18}"
+      DTS:DTSID="{FECB35F0-7F8D-4A14-87B5-3C6454973E84}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Llenar DimEntidad"
@@ -91,19 +63,19 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[EntidadId_origen]"
-                      cachedDataType="i8"
+                      cachedDataType="ui4"
                       cachedName="EntidadId_origen"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]" />
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[Entidad]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Entidad"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]" />
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[EntidadCompleta]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="EntidadCompleta"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]" />
                     <inputColumn
@@ -114,19 +86,19 @@
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[Ciudad]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Ciudad"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]" />
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[Estado]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Estado"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]" />
                     <inputColumn
                       refId="Package\Llenar DimEntidad\Data Conversion.Inputs[Data Conversion Input].Columns[Pais]"
                       cachedDataType="wstr"
-                      cachedLength="510"
+                      cachedLength="255"
                       cachedName="Pais"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]" />
                   </inputColumns>
@@ -376,8 +348,8 @@
               <connections>
                 <connection
                   refId="Package\Llenar DimEntidad\DST_DimEntidad_Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conexión de datos]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -565,8 +537,8 @@ ORDER BY e.id</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
-                  connectionManagerRefId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -577,7 +549,7 @@ ORDER BY e.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadId_origen]"
@@ -590,7 +562,7 @@ ORDER BY e.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Entidad]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]"
                       name="Entidad"
                       truncationRowDisposition="FailComponent" />
@@ -600,7 +572,7 @@ ORDER BY e.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadCompleta]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]"
                       name="EntidadCompleta"
                       truncationRowDisposition="FailComponent" />
@@ -619,7 +591,7 @@ ORDER BY e.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
                       name="Ciudad"
                       truncationRowDisposition="FailComponent" />
@@ -629,7 +601,7 @@ ORDER BY e.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]"
                       name="Estado"
                       truncationRowDisposition="FailComponent" />
@@ -639,7 +611,7 @@ ORDER BY e.id</property>
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]"
                       name="Pais"
                       truncationRowDisposition="FailComponent" />
@@ -648,17 +620,17 @@ ORDER BY e.id</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       name="EntidadId_origen" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Entidad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Entidad" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="EntidadCompleta" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
@@ -667,17 +639,17 @@ ORDER BY e.id</property>
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Ciudad" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Estado" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       name="Pais" />
                   </externalMetadataColumns>
                 </output>
@@ -688,19 +660,19 @@ ORDER BY e.id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadId_origen]"
-                      dataType="i8"
+                      dataType="ui4"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadId_origen]"
                       name="EntidadId_origen" />
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Entidad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Entidad]"
                       name="Entidad" />
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadCompleta]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadCompleta]"
                       name="EntidadCompleta" />
                     <outputColumn
@@ -711,19 +683,19 @@ ORDER BY e.id</property>
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
                       name="Ciudad" />
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
                       name="Estado" />
                     <outputColumn
                       refId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
                       dataType="wstr"
-                      length="510"
+                      length="255"
                       lineageId="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
                       name="Pais" />
                     <outputColumn
@@ -764,7 +736,7 @@ ORDER BY e.id</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{5BF3B134-EDB8-4E67-A318-A8FA779143D4}"
+      DTS:DTSID="{26395A06-714F-4C56-9766-DC02BF0371FD}"
       DTS:From="Package\Limpieza de tabla DimEntidad"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
@@ -837,13 +809,13 @@ ORDER BY e.id</property>
           Id="Package\Llenar DimEntidad\Leer base de datos GLPI y tabla glpi_entities"
           TopLeft="69.4615374264809,42.8461532076964" />
         <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Llenar DimEntidad\DST_DimEntidad_Insert"
-          TopLeft="459.166641578907,143.133332471516" />
-        <NodeLayout
           Size="156,41.6"
           Id="Package\Llenar DimEntidad\Data Conversion"
           TopLeft="236.666653735771,149.933332290716" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Llenar DimEntidad\DST_DimEntidad_Insert"
+          TopLeft="459.166641578907,143.133332471516" />
         <EdgeLayout
           Id="Package\Llenar DimEntidad.Paths[Salida de origen de ADO NET]"
           TopLeft="211.861537426481,84.4461532076964">
