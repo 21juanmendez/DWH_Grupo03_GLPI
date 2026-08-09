@@ -1,0 +1,715 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2026 8:49:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JOSE"
+  DTS:CreatorName="JOSE\obed"
+  DTS:DTSID="{C4A37AA6-4E7D-4E56-A222-575164EA1D06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="DimPrioridad_cargaInicial"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{E98A3840-BC96-46F6-B996-90F3FC3230F1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=26.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{B839BA26-6389-4B53-8A4F-4087708D10ED}"
+      DTS:ObjectName="32.196.220.213.glpidb.glpiuser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;database=glpidb;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADQuagV7/mwjz/X8Zc25biCIWZOUvYd1ZLmHNeJ/oC9nQAAAAAOgAAAAAIAACAAAACz4Ptc0rQQd6IazQw4uLQkSS3dz2uk0m3J7bbJHQHj+SAAAAB65Sit6H6MOQnf6xq7RjR/utp/AueaTwJaSQDCdS+zekAAAADb90wwTaX2vBHc4XeWE3lzCeQKYqu3xJt7gZ78Xrqems42O7tykEE9tNXtvWYniuc5t+CP60BOxmeZml5Bkw4l</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A5639839-012E-4748-879B-9CC4F3A081C6}"
+      DTS:ObjectName="JOSE.DWH_Grupo03_GLPI.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=JOSE;User ID=sa;Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Persist Security Info=True;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-DimSLA_cargaInicial-{A5639839-012E-4748-879B-9CC4F3A081C6}JOSE.DWH_Grupo03_GLPI.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD1cYjNPn0mFB5I3PJDiNp86/zUBnoE03w9KA1EX00ugAAAAAAOgAAAAAIAACAAAADdBxG6CMpDxfc2EH1mPVqr+iSKKcNZ4NbeoHzOZuDKvyAAAACXCwpRxzYvSW+w69W6h4+hxf1s9hNodwxLYGLEUffkUEAAAAA6c7lq61W/Ck+OgdXo3MhPxNi9FOxTEf1XHCCPdOFTmTSGgsx98fnyzYeGLn1iZzC8ZSmvB25IPUTJ/cleoJjr</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Limpieza de tabla DimPrioridad"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{4E70E4DD-A93A-4F95-ABEA-D45C56717BBB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpieza de tabla DimPrioridad"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A5639839-012E-4748-879B-9CC4F3A081C6}"
+          SQLTask:SqlStatementSource="DELETE FROM DimPrioridad; &#xA;DBCC CHECKIDENT('DimPrioridad', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Llenar DimPrioridad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E4102924-67A8-4134-BF83-DD10782F4884}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Llenar DimPrioridad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Llenar DimPrioridad\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input].Columns[Urgencia]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Urgencia"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Urgencia]" />
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input].Columns[Impacto]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Impacto"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Impacto]" />
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input].Columns[Prioridad]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Prioridad"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Prioridad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Urgencia_conv]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Urgencia_conv]"
+                      name="Urgencia_conv"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Urgencia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Impacto_conv]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Impacto_conv]"
+                      name="Impacto_conv"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Impacto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Prioridad_conv]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Prioridad_conv]"
+                      name="Prioridad_conv"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Prioridad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimPrioridad\Leer base de datos GLPI"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer base de datos GLPI"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CASE u.n WHEN 1 THEN 'Muy baja' WHEN 2 THEN 'Baja' WHEN 3 THEN 'Mediana'
+             WHEN 4 THEN 'Alta'     WHEN 5 THEN 'Muy alta' END      AS Urgencia,
+    CASE i.n WHEN 1 THEN 'Muy bajo' WHEN 2 THEN 'Bajo' WHEN 3 THEN 'Mediano'
+             WHEN 4 THEN 'Alto'     WHEN 5 THEN 'Muy alto' END      AS Impacto,
+    CASE p.n WHEN 1 THEN 'Muy baja' WHEN 2 THEN 'Baja' WHEN 3 THEN 'Mediana'
+             WHEN 4 THEN 'Alta'     WHEN 5 THEN 'Muy alta'
+             WHEN 6 THEN 'Mayor' END                                AS Prioridad
+FROM      (SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5) u
+              CROSS JOIN(SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5) i
+              CROSS JOIN(SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5
+                         UNION SELECT 6) p
+ORDER BY u.n, i.n, p.n;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
+                  connectionManagerRefId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Urgencia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Urgencia]"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Urgencia]"
+                      name="Urgencia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Impacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Impacto]"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Impacto]"
+                      name="Impacto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Prioridad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Prioridad]"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].Columns[Prioridad]"
+                      name="Prioridad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Urgencia]"
+                      dataType="wstr"
+                      length="8"
+                      name="Urgencia" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Impacto]"
+                      dataType="wstr"
+                      length="8"
+                      name="Impacto" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET].ExternalColumns[Prioridad]"
+                      dataType="wstr"
+                      length="8"
+                      name="Prioridad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Urgencia]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Urgencia]"
+                      name="Urgencia" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Impacto]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Impacto]"
+                      name="Impacto" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Prioridad]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[Prioridad]"
+                      name="Prioridad" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimPrioridad\Llenar DimSLA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Llenar DimSLA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimPrioridad]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Urgencia_conv]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Urgencia_conv"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Urgencia_conv]" />
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Impacto_conv]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Impacto_conv"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Impacto_conv]" />
+                    <inputColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].Columns[Prioridad_conv]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Prioridad_conv"
+                      externalMetadataColumnId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
+                      lineageId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output].Columns[Prioridad_conv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[PrioridadKey]"
+                      dataType="i4"
+                      name="PrioridadKey" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Urgencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Urgencia" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Impacto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Impacto" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input].ExternalColumns[Prioridad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Prioridad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimPrioridad\Llenar DimSLA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Llenar DimPrioridad.Paths[Data Conversion Output]"
+              endId="Package\Llenar DimPrioridad\Llenar DimSLA.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Llenar DimPrioridad\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Llenar DimPrioridad.Paths[Salida de origen de ADO NET]"
+              endId="Package\Llenar DimPrioridad\Data Conversion.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Llenar DimPrioridad\Leer base de datos GLPI.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{875739BB-266F-4DFB-AFC1-09258854613B}"
+      DTS:From="Package\Limpieza de tabla DimPrioridad"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Llenar DimPrioridad" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\Limpieza de tabla DimPrioridad"
+          TopLeft="191.666656194462,64.9999995479981" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Llenar DimPrioridad"
+          TopLeft="318.333315940368,157.733332236475" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="303.266656194462,106.599999547998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.266659745906,51.1333326884769"
+              Start="0,0"
+              End="100.266659745906,43.6333326884769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5666663442385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5666663442385"
+                    Point2="0,25.5666663442385"
+                    Point3="4,25.5666663442385" />
+                  <mssgle:LineSegment
+                    End="96.266659745906,25.5666663442385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.266659745906,25.5666663442385"
+                    Point2="100.266659745906,25.5666663442385"
+                    Point3="100.266659745906,29.5666663442385" />
+                  <mssgle:LineSegment
+                    End="100.266659745906,43.6333326884769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Llenar DimPrioridad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Llenar DimPrioridad\Llenar DimSLA"
+          TopLeft="429.999976505837,201.933331929114" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Llenar DimPrioridad\Leer base de datos GLPI"
+          TopLeft="131.666659472718,38.1333330681589" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Llenar DimPrioridad\Data Conversion"
+          TopLeft="328.333315393992,113.533332543837" />
+        <EdgeLayout
+          Id="Package\Llenar DimPrioridad.Paths[Salida de origen de ADO NET]"
+          TopLeft="228.466659472718,79.7333330681589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.866655921274,33.7999994756778"
+              Start="0,0"
+              End="177.866655921274,26.2999994756778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8999997378389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8999997378389"
+                    Point2="0,16.8999997378389"
+                    Point3="4,16.8999997378389" />
+                  <mssgle:LineSegment
+                    End="173.866655921274,16.8999997378389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173.866655921274,16.8999997378389"
+                    Point2="177.866655921274,16.8999997378389"
+                    Point3="177.866655921274,20.8999997378389" />
+                  <mssgle:LineSegment
+                    End="177.866655921274,26.2999994756778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimPrioridad.Paths[Data Conversion Output]"
+          TopLeft="406.333315393992,155.133332543837">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.666661111845,46.7999993852774"
+              Start="0,0"
+              End="97.666661111845,39.2999993852774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3999996926387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3999996926387"
+                    Point2="0,23.3999996926387"
+                    Point3="4,23.3999996926387" />
+                  <mssgle:LineSegment
+                    End="93.666661111845,23.3999996926387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.666661111845,23.3999996926387"
+                    Point2="97.666661111845,23.3999996926387"
+                    Point3="97.666661111845,27.3999996926387" />
+                  <mssgle:LineSegment
+                    End="97.666661111845,39.2999993852774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimPrioridad\Llenar DimSLA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimPrioridad\Leer base de datos GLPI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
