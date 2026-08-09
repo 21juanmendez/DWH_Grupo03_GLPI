@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimCategoria_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{F19FEF5A-070D-4FDB-B979-64223D58EA2C}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{C5AABFB0-1F7B-49DB-9934-B3777332576A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABXGrg2n5EQ5Ss1FDvMYaB1VXsBU5hlzvsNrFka1Hs2pwAAAAAOgAAAAAIAACAAAABOE88Nm3NXFkvF2+rKo0UwFrMjjIuX1wxnei+5lortXSAAAAAY5eUgO1+3gTQ/Ny8QhSVCxfZg4BvZG9P/i60thL60TUAAAACnqA0Gboy4nw/ruAAflYehJQYRISwxuExlcAxgbew10od1JIOKtQoVvLEy0a8cnnwuo1fDSeaJSig0g4OTMrdg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC9WnYxg7vWOj43QlDFCwKEG9GQwsPvuC/8fJ1X9sRXUAAAAAAOgAAAAAIAACAAAACjns5ClFmCtHxTFSjxFtne7LO0gJ/Yrv2Jluq1MK0IwiAAAAD0QYPZjEnfcNAwC+Z7ov9BR77cHFDythC0DS9bvfXiy0AAAAA3C7L0zpEnkl1tdrLWll6D9QLQrKpHKMP4vjRfkgrLo9oS0NBczpOgL0WP5oIwFMXRD3dvO+N5ILjsHYbm+MZE</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -707,45 +707,11 @@ ORDER BY c.id;</property>
         <NodeLayout
           Size="309.6,41.6"
           Id="Package\Llenar DimCategoria\Leer base de datos GLPI y tabla glpi_itilcategories"
-          TopLeft="69.4615374264809,41.9794865470564" />
+          TopLeft="67.7948708508769,41.9794865470564" />
         <NodeLayout
           Size="131.2,41.6"
           Id="Package\Llenar DimCategoria\DCV_Tipos"
           TopLeft="211.66665510171,136.199999186397" />
-        <EdgeLayout
-          Id="Package\Llenar DimCategoria.Paths[Salida de origen de ADO NET]"
-          TopLeft="224.261537426481,83.5794865470564">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.0051176752294,52.6205126393402"
-              Start="0,0"
-              End="53.0051176752294,45.1205126393402">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.3102563196701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.3102563196701"
-                    Point2="0,26.3102563196701"
-                    Point3="4,26.3102563196701" />
-                  <mssgle:LineSegment
-                    End="49.0051176752294,26.3102563196701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.0051176752294,26.3102563196701"
-                    Point2="53.0051176752294,26.3102563196701"
-                    Point3="53.0051176752294,30.3102563196701" />
-                  <mssgle:LineSegment
-                    End="53.0051176752294,45.1205126393402" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="200,41.6"
           Id="Package\Llenar DimCategoria\DST_DimCategoria_Insert"
@@ -764,6 +730,40 @@ ORDER BY c.id;</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="108.799986477197,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimCategoria.Paths[Salida de origen de ADO NET]"
+          TopLeft="222.594870850877,83.5794865470564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.6717842508331,52.6205126393406"
+              Start="0,0"
+              End="54.6717842508331,45.1205126393406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3102563196703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.3102563196703"
+                    Point2="0,26.3102563196703"
+                    Point3="4,26.3102563196703" />
+                  <mssgle:LineSegment
+                    End="50.6717842508331,26.3102563196703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.6717842508331,26.3102563196703"
+                    Point2="54.6717842508331,26.3102563196703"
+                    Point3="54.6717842508331,30.3102563196703" />
+                  <mssgle:LineSegment
+                    End="54.6717842508331,45.1205126393406" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
