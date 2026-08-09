@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JUAN-MENDEZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="UGWVukUyuN0=" SSIS:IV="tlb+NLY4oeaX/5sBOD1ztg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">frVcXmEnDMkJx3fxQ60du8PitEoblbzzmbFCFtkD1j/c8P2JKmphWCP78ZDdGTjuButk5awKqoJrN2NdtgI6zPLrP5Lml6rukrB/W/W9Sr+OzXxeMXHtkneNe82mB3zBYpy0K/dxs9SSzoavW2jVTYMD3Seh02pYKIAGco6oMjh/s+vmMFM+Nq+UNelWk3JA</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="f6TzqGjADM4=" SSIS:IV="Sg20fUedzgUUhPYPrvwE+Q==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">I86SfkPUABhQRw2Z2Y/aP6KLhS7GR9ez/1Qt+S4/ba2dBllAI+AYewSlmKzkIxD/FAdN3EClhGqPpUZ8LZjuMnR/BBFoYOMJAawXv1UrrCefpeFh+ftMWwEdG8nqIDYWR6Km1lvvkg0t5tOthjPAjDqpUN4mW5nM8MXrBYu9dTXJn/QbtclxJofz2gsNDOnr</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -39,6 +39,7 @@
           <SSIS:Package SSIS:Name="DimCanal_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimEntidad_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimGrupo_cargaInicial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimTipoSolucion_cargaInicial.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DWH_Local.conmgr" />
@@ -372,6 +373,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{91F098B2-0BD8-4854-9F18-AAB69AA72C06}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimTipoSolucion_cargaInicial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{AC832149-3EA1-46C3-AB36-D5E73051E56B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimTipoSolucion_cargaInicial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9300BAFA-0402-4D28-BA0B-8103BA98BD27}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
