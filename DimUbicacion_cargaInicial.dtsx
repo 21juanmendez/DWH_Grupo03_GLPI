@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/6/2026 5:13:30 PM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
-  DTS:ObjectName="DimCategoria_cargaInicial"
+  DTS:ObjectName="DimUbicacion_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{23A598E4-23C7-4B88-99DA-F2D5CC1A8FCE}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{EA6DCBA8-34AF-468F-BDCA-48DA814F3ABA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABI/RHAFDe8n/VUej3fVNwpzwAw3LZaq0+rebGCwQoVZgAAAAAOgAAAAAIAACAAAADgXl59DE9g4YHi/jS/z31rCfueOrI3znCYG+zDE1sH5iAAAAC+CwEYT7bHbaOESQVGGJqeQPgi/rNNRP36zwogCc+L9UAAAAAaIOHcxQ9ppAcvQjDdV1w8u14NjidHdq3zfubDwqrVynRfnrLg8m7xjcMx3QI92ET/4SbyF+FndDfBSmClJQz7</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAqPrn7RLvivxBYPkLmNs0XI1J/0z2a9lOjPBZX44zdzgAAAAAOgAAAAAIAACAAAADKaeVsKghhJ0vLm53W6JYdQLmO8wi7VSNIe4pgJIM+8CAAAACFsNxBrypm14qNQ2lkSVTTClmxUkgwh7yCxhYvjEvBsEAAAABTN/xkmTfumlTq/EVM2mQLEuVbruwPBXE5c1yI38nFzCm/Pyr2ImpbZuydgXN1i5TuV83ypoCbFW9SBZjpB+Qw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
