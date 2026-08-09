@@ -1,0 +1,1215 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2026 5:37:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WILLIAM"
+  DTS:CreatorName="William\William10"
+  DTS:DTSID="{917E1805-61F4-4DF4-B49F-E171685A72B0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="DimCategoria_cargaDiferencial"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{7AB9C802-01A3-4C18-9F60-7E9C838FDD93}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CBB1BC63-A1B4-49F1-A9BD-703ACC7F8665}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\CMD_DimCategoria_Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_DimCategoria_Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.sp_DimCategoria_Update ?, ?, ?, ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CMD_DimCategoria_Update.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].Columns[CategoriaId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="CategoriaId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@CategoriaId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].Columns[Categoria_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Categoria_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Categoria]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].Columns[CategoriaCompleta_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CategoriaCompleta_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@CategoriaCompleta]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaCompleta_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].Columns[Nivel_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="Nivel_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Nivel]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].Columns[Codigo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Codigo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Codigo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Codigo_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@CategoriaId_origen]"
+                      dataType="i4"
+                      name="@CategoriaId_origen">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Categoria">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@CategoriaCompleta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@CategoriaCompleta">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Nivel]"
+                      dataType="i4"
+                      name="@Nivel">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input].ExternalColumns[@Codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Codigo">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimCategoria_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DCV_Tipos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCV_Tipos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[CategoriaId_origen]"
+                      cachedDataType="ui4"
+                      cachedName="CategoriaId_origen"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Categoria"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[CategoriaCompleta]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CategoriaCompleta"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Nivel]"
+                      cachedDataType="i8"
+                      cachedName="Nivel"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Nivel]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Codigo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Codigo"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]"
+                      name="CategoriaId_origen_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]"
+                      name="Categoria_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaCompleta_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaCompleta_nuevo]"
+                      name="CategoriaCompleta_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]"
+                      name="Nivel_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Nivel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Codigo_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Codigo_nuevo]"
+                      name="Codigo_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DST_DimCategoria_Insert"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST_DimCategoria_Insert"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCategoria]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DST_DimCategoria_Insert.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].Columns[CategoriaId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="CategoriaId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].Columns[Categoria_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Categoria_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].Columns[CategoriaCompleta_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CategoriaCompleta_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaCompleta]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaCompleta_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].Columns[Nivel_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="Nivel_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Nivel]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].Columns[Codigo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Codigo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Codigo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Codigo_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaKey]"
+                      dataType="i4"
+                      name="CategoriaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaId_origen]"
+                      dataType="i4"
+                      name="CategoriaId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[CategoriaCompleta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CategoriaCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Nivel]"
+                      dataType="i4"
+                      name="Nivel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Codigo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DST_DimCategoria_Insert.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimCategoria_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimCategoria_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimCategoria_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\LKP_DimCategoria"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DimCategoria"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CategoriaKey, CategoriaId_origen, Categoria, CategoriaCompleta, Nivel, Codigo
+FROM DimCategoria
+WHERE CategoriaKey &gt; 0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT CategoriaKey, CategoriaId_origen, Categoria, CategoriaCompleta, Nivel, Codigo
+FROM DimCategoria
+WHERE CategoriaKey &gt; 0) [refTable]
+where [refTable].[CategoriaId_origen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CategoriaKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoriaId_origen" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Categoria" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CategoriaCompleta" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Nivel" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Codigo" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\LKP_DimCategoria.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input].Columns[CategoriaId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="CategoriaId_origen_nuevo"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[CategoriaId_origen_nuevo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CategoriaId_origen</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Categoria_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Categoria_lookup]"
+                      name="Categoria_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Categoria</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Nivel_lookup]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Nivel_lookup]"
+                      name="Nivel_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Nivel</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Codigo_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[Codigo_lookup]"
+                      name="Codigo_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Codigo</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[CategoriaCompleta_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output].Columns[CategoriaCompleta_lookup]"
+                      name="CategoriaCompleta_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CategoriaCompleta</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SRC_GLPI_itilcategories"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="SRC_GLPI_itilcategories"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    c.id                                                                AS CategoriaId_origen,
+    COALESCE(NULLIF(TRIM(c.name),''),'Sin nombre')                      AS Categoria,
+    CAST(COALESCE(NULLIF(TRIM(c.completename),''),
+                  NULLIF(TRIM(c.name),''),'Sin nombre') AS CHAR(255))   AS CategoriaCompleta,
+    COALESCE(c.level,1)                                                 AS Nivel,
+    COALESCE(NULLIF(TRIM(c.code),''),'N/A')                      AS Codigo
+FROM glpi_itilcategories c
+ORDER BY c.id;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Connections[IDbConnection]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaId_origen]"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaId_origen]"
+                      name="CategoriaId_origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaCompleta]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[CategoriaCompleta]"
+                      name="CategoriaCompleta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Nivel]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Nivel]"
+                      name="Nivel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Codigo]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].Columns[Codigo]"
+                      name="Codigo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaId_origen]"
+                      dataType="ui4"
+                      name="CategoriaId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[CategoriaCompleta]"
+                      dataType="wstr"
+                      length="255"
+                      name="CategoriaCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
+                      dataType="i8"
+                      name="Nivel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET].ExternalColumns[Codigo]"
+                      dataType="wstr"
+                      length="255"
+                      name="Codigo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaId_origen]"
+                      dataType="ui4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaId_origen]"
+                      name="CategoriaId_origen" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaCompleta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[CategoriaCompleta]"
+                      name="CategoriaCompleta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Nivel]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Nivel]"
+                      name="Nivel" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Codigo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[Codigo]"
+                      name="Codigo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\LKP_DimCategoria.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\CMD_DimCategoria_Update.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\DST_DimCategoria_Insert.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\LKP_DimCategoria.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+              endId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Data Flow Task\SRC_GLPI_itilcategories.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,53.6"
+          Id="Package\Data Flow Task\LKP_DimCategoria"
+          TopLeft="414.999993816018,165.599997556209" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Data Flow Task\DST_DimCategoria_Insert"
+          TopLeft="708.999989435077,193.999997109175" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Data Flow Task\SRC_GLPI_itilcategories"
+          TopLeft="287.999995708466,76.9999988526106" />
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\Data Flow Task\CMD_DimCategoria_Update"
+          TopLeft="613.999990850687,65.199999254942" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\DCV_Tipos"
+          TopLeft="155.999997675419,158.999997630715" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="287.199997675419,179.799997630715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.799996140599,12.599999925494"
+              Start="0,0"
+              End="120.299996140599,12.599999925494">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.8999980702997,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.8999980702997,0"
+                    Point2="63.8999980702997,0"
+                    Point3="63.8999980702997,4" />
+                  <mssgle:LineSegment
+                    End="63.8999980702997,8.59999992549405" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.8999980702997,8.59999992549405"
+                    Point2="63.8999980702997,12.599999925494"
+                    Point3="67.8999980702997,12.599999925494" />
+                  <mssgle:LineSegment
+                    End="120.299996140599,12.599999925494" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+          TopLeft="375.999995708466,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.399998033047,40.3999987781044"
+              Start="0,0"
+              End="-154.399998033047,32.8999987781044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1999993890522"
+                    Point2="0,20.1999993890522"
+                    Point3="-4,20.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-150.399998033047,20.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150.399998033047,20.1999993890522"
+                    Point2="-154.399998033047,20.1999993890522"
+                    Point3="-154.399998033047,24.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-154.399998033047,32.8999987781044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="582.199993816018,192.399997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.799995619059,22.3999995529653"
+              Start="0,0"
+              End="119.299995619059,22.3999995529653">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.3999978095294,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.3999978095294,0"
+                    Point2="63.3999978095294,0"
+                    Point3="63.3999978095294,4" />
+                  <mssgle:LineSegment
+                    End="63.3999978095294,18.3999995529653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.3999978095294,18.3999995529653"
+                    Point2="63.3999978095294,22.3999995529653"
+                    Point3="67.3999978095294,22.3999995529653" />
+                  <mssgle:LineSegment
+                    End="119.299995619059,22.3999995529653" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.5936110907794,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="498.599993816018,165.599997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.599997034669,-58.7999983012675"
+              Start="0,0"
+              End="220.599997034669,-51.2999983012675">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.3999991506337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.3999991506337"
+                    Point2="0,-29.3999991506337"
+                    Point3="4,-29.3999991506337" />
+                  <mssgle:LineSegment
+                    End="216.599997034669,-29.3999991506337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="216.599997034669,-29.3999991506337"
+                    Point2="220.599997034669,-29.3999991506337"
+                    Point3="220.599997034669,-33.3999991506337" />
+                  <mssgle:LineSegment
+                    End="220.599997034669,-51.2999983012675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="62.1086117985845,-24.3999991506337,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DST_DimCategoria_Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\LKP_DimCategoria">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SRC_GLPI_itilcategories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

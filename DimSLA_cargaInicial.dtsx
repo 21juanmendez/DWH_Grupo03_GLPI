@@ -11,44 +11,11 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimSLA_cargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{64B9D0EC-023C-413C-9B54-2918A20E4343}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{279DEA2E-9518-4837-AB7D-2FE348FD3470}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
-      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=26.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
-      DTS:DTSID="{B863C3EB-D3F4-469D-AF39-8CE9BDF33B39}"
-      DTS:ObjectName="32.196.220.213.glpidb.glpiuser">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;database=glpidb;">
-          <DTS:Password
-            DTS:Name="password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACUM8GDldi4A3LQR2kjmjsvdcQ1Tb/EkNvlnh/lWo4mngAAAAAOgAAAAAIAACAAAADTqArvj12hUdivyV/53ZfbLa4vTTu7bQjNxYKmX6RFHyAAAADwHBbiCNLjjjvQKWcVEwIHLls98bTE8vSjbzLmHaBUrEAAAABj6av7ij9is+xhKbZIQxskBNTCB1U6VaLep4Epn1mf3CumxUbpZg0r/JhBNKalldNDIUGHWwpwn/5DPVFnUbji</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{E48E83B3-E8D5-4697-B17D-1C7EEDBEEEF1}"
-      DTS:ObjectName="JOSE.DWH_Grupo03_GLPI.sa">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=JOSE;User ID=sa;Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Persist Security Info=True;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-DimSLA_cargaInicial-{E48E83B3-E8D5-4697-B17D-1C7EEDBEEEF1}JOSE.DWH_Grupo03_GLPI.sa;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnQheqMbpfUaM0Cp2w/ZY6AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD5BxYeZbHoh779+Ft/P3Da1jGbmT35QASMqb7e/HN5UAAAAAAOgAAAAAIAACAAAAAVViYgfxVdzHh/Qu8Qp308hDPOzL2OSOrVC6sHPTr5RCAAAADzohwqGEQY110qn9fFA7QlPKIbdbAioCHB48MNLmORCkAAAADWTZwQHf+mXeGOHwKoqYrzgKF1+2jM13aYA62VboZA/+pGFdPRhxmj7JUP0uQZGvwVhx/mHzgXxnCK+UYJckH5</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -64,7 +31,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E48E83B3-E8D5-4697-B17D-1C7EEDBEEEF1}"
+          SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
           SQLTask:SqlStatementSource="DELETE FROM DimSLA WHERE SLAKey &gt; 0; &#xA;DBCC CHECKIDENT('DimSLA', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -305,8 +272,8 @@ ORDER BY s.id;</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimSLA\Leer base de datos GLPI.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
-                  connectionManagerRefId="Package.ConnectionManagers[32.196.220.213.glpidb.glpiuser]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -527,8 +494,8 @@ ORDER BY s.id;</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimSLA\Llenar DimSLA.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
-                  connectionManagerRefId="Package.ConnectionManagers[JOSE.DWH_Grupo03_GLPI.sa]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -695,13 +662,13 @@ ORDER BY s.id;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Llenar DimSLA"
-          TopLeft="318.333315940368,157.733332236475" />
-        <NodeLayout
           Size="200.8,41.6"
           Id="Package\Limpieza de tabla DimSLA"
           TopLeft="191.666656194462,64.9999995479981" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Llenar DimSLA"
+          TopLeft="318.333315940368,157.733332236475" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="292.066656194462,106.599999547998">
@@ -745,13 +712,13 @@ ORDER BY s.id;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Llenar DimSLA\Leer base de datos GLPI"
-          TopLeft="131.666659472718,38.1333330681589" />
-        <NodeLayout
           Size="148,41.6"
           Id="Package\Llenar DimSLA\Llenar DimSLA"
           TopLeft="429.999976505837,201.933331929114" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Llenar DimSLA\Leer base de datos GLPI"
+          TopLeft="131.666659472718,38.1333330681589" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Llenar DimSLA\Data Conversion"
@@ -828,14 +795,6 @@ ORDER BY s.id;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimSLA\Leer base de datos GLPI">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Llenar DimSLA\Llenar DimSLA">
     <Properties>
       <Property>
@@ -845,6 +804,14 @@ ORDER BY s.id;</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimSLA\Leer base de datos GLPI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
