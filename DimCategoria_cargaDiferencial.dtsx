@@ -5,33 +5,33 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="WILLIAM"
   DTS:CreatorName="William\William10"
-  DTS:DTSID="{7D540C00-4F91-42D3-BD8C-0C90E63DA0F3}"
+  DTS:DTSID="{917E1805-61F4-4DF4-B49F-E171685A72B0}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
   DTS:ObjectName="DimCategoria_cargaDiferencial"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{A28A5F0D-89F7-47D8-B456-E2926E8BE49C}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{F074C1E6-15E2-4D88-8C64-B1F2FDC3B4B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Conexión de datos 1]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{A6A3ABC3-88C2-49B7-AB07-B62FDB30B9C7}"
+      DTS:DTSID="{C6B3C06F-845E-4AB5-9393-5B4AFE11E0C2}"
       DTS:ObjectName="Conexión de datos 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A6A3ABC3-88C2-49B7-AB07-B62FDB30B9C7}Conexión de datos 1;Auto Translate=False;" />
+          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{C6B3C06F-845E-4AB5-9393-5B4AFE11E0C2}Conexión de datos 1;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
       DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{82FB8185-741F-47E7-B57D-C3C8D11700DF}"
+      DTS:DTSID="{46AEE96F-46F8-4ABE-A3DD-807C73BA5B11}"
       DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACtZ73GQhp2e9e8UfXFUTdbzP5vRhPU9+G1QyTZ92tUwAAAAAAOgAAAAAIAACAAAABPUyVw8xidm42fSTRaHwUj7ZDsoGgFdsC0ymXqTHVEviAAAABmfzqeQWyKvWvROBWps0Tqxrb2gGnu9JBaZPpvTBJIokAAAADFR6Ze4AgwyLNRp3g+tV5l61+Pd4SidEyhF215MuX7qJI/459zINwKPleM0lLXLZeKal+izAlCtMbyeyMlNTHX</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB16c7pQldfGt+62uTZBjiOYTe+EicQ0v+ErknD1HgnxAAAAAAOgAAAAAIAACAAAAAxn6XjeVWbrCaCj8Ci+sjYnBtyS6FjcjsPi4MLE3F3tyAAAADBV8E0I1mCmnX5X5iMj64lro6xT8W+EGxFyVZuEiGJVUAAAABkeVuU1w75hlAO3FgQeU6LkBnTeNBVtMCP7bWyhlAcS3wT9rWOPQEZwWUPSEvV8j9DK6MrpLNsMdfp1kVLM7F2</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,7 +50,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{BB8B190D-1A99-4201-A2B1-10188B8D3E40}"
+      DTS:DTSID="{CBB1BC63-A1B4-49F1-A9BD-703ACC7F8665}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task">

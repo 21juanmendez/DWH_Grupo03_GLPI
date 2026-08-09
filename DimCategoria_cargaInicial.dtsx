@@ -1,37 +1,37 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/6/2026 5:13:30 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="JUAN-MENDEZ"
   DTS:CreatorName="JUAN-MENDEZ\juann"
-  DTS:DTSID="{AD8148A4-0BC8-4704-87CA-D87E31CBDAD5}"
+  DTS:DTSID="{F29057AC-1BC3-43E3-91D6-1D5F1F37C250}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="17418"
   DTS:ObjectName="DimCategoria_cargaInicial"
   DTS:PackageType="5"
   DTS:VersionBuild="35"
-  DTS:VersionGUID="{5135F4F5-AD74-495C-A41D-619149395123}">
+  DTS:VersionGUID="{86372906-59E7-499D-92F5-A4F67CCD4CAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Conexión de datos]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{E71CFB60-1457-4049-A77C-36BA323CC41B}"
+      DTS:DTSID="{1E75DC25-C809-4ABB-9CC8-BAA929D8DF77}"
       DTS:ObjectName="Conexión de datos">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCategoria_cargaInicial-{E71CFB60-1457-4049-A77C-36BA323CC41B}Conexión de datos;Auto Translate=False;" />
+          DTS:ConnectionString="Initial Catalog=DWH_Grupo03_GLPI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCategoria_cargaInicial-{1E75DC25-C809-4ABB-9CC8-BAA929D8DF77}Conexión de datos;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[glpi-proyecto03.duckdns.org.glpidb.glpiuser]"
       DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{1842B106-4A31-42C6-BF54-A04BFB29363A}"
+      DTS:DTSID="{40A4F325-A72F-48BC-97D0-3E4A3F0B5A4E}"
       DTS:ObjectName="glpi-proyecto03.duckdns.org.glpidb.glpiuser">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAk5VX+2PNxhJ4YIL9c9jhDh2y0iDirDabCxzIqDWNKhQAAAAAOgAAAAAIAACAAAAATTKoE6PJ5+D1Xcf1doe/tn59skCxm8kRcpiHP+y7UwyAAAAB5hB3bBbzj4+YLVupoiymhJAunDLiapBc+YKSaE+PCJEAAAAB9JvZmEIL0HKPy/ut/3qEtGQwRvsEocquNHPxbdHbLzX2AzH+NTgwfH9A4Igr8/ZHWiXdEf/IXnS9juxsK5J8P</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzzk5yeJViEyXRSjQxyJ2TQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABGQrTwuSAUFF79SYMeU6AusEuTBDLwR6EvVP2XzOVSbQAAAAAOgAAAAAIAACAAAACmYROVOlog0gKROXkYrQuHtDRx7PUWTPNszxu00GbX4SAAAACRfJ10fucA1/fda4/dJ9T3M9mU+zkQpzBiKUdCKCVIoUAAAADwA3dfi4bmxFlADPysqmlKLMAXEAKkmL2NI+F1jdfEMnLehGf+DdmZYJ2nqDIDLN+VpTI61RkIdG/ZxzoWX9BE</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,7 +50,7 @@
       DTS:refId="Package\Limpieza de tabla DimCategoria"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{E29C3299-2507-46C2-8FCB-CC6AD114D58D}"
+      DTS:DTSID="{736E9918-7BFD-4C18-B7BD-BBDDB4300607}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Limpieza de tabla DimCategoria"
@@ -59,7 +59,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E71CFB60-1457-4049-A77C-36BA323CC41B}"
+          SQLTask:Connection="{1E75DC25-C809-4ABB-9CC8-BAA929D8DF77}"
           SQLTask:SqlStatementSource="DELETE FROM DimCategoria;&#xA;DBCC CHECKIDENT('DimCategoria', RESEED, 0);&#xA;&#xA;SET IDENTITY_INSERT DimCategoria ON;&#xA;INSERT INTO DimCategoria (CategoriaKey, CategoriaId_origen, Categoria, CategoriaCompleta, Nivel, Codigo)&#xA;VALUES (-1, -1, 'Sin categoria', 'Sin categoria', 0, 'N/A');&#xA;SET IDENTITY_INSERT DimCategoria OFF;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -67,7 +67,7 @@
       DTS:refId="Package\Llenar DimUsuario"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{88D42DD5-F531-4B76-A1F7-648B05C0D544}"
+      DTS:DTSID="{3C6F3B33-0142-4AF9-B904-ED34CCC8F164}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Llenar DimUsuario"
@@ -636,7 +636,7 @@ ORDER BY c.id;</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{87761786-41EF-4D6A-8037-9D81A1E6A6DE}"
+      DTS:DTSID="{AC8A1DD7-94E0-439A-8C76-21F08254E523}"
       DTS:From="Package\Limpieza de tabla DimCategoria"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
