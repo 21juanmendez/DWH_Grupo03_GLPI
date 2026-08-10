@@ -12,8 +12,8 @@
   DTS:ObjectName="Orquestador_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{7E5CB45D-9DF3-4A00-881C-2564ED0070B5}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{ECEFFB37-B2B0-4BEF-AA1F-0511B8B60A1D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -326,33 +326,29 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="344.8,41.6"
-          Id="Package\Vaciar tabla de hechos FactTickets y BridgeTicketTecnico"
-          TopLeft="0,61.5333329054382" />
+          Size="172.8,41.6"
+          Id="Package\BridgeTicketTecnico"
+          TopLeft="631.666632153923,120.599999656479" />
         <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\DimUsuario"
-          TopLeft="119.166660155687,165.533332182235" />
-        <NodeLayout
-          Size="132,41.6"
-          Id="Package\DimEntidad"
-          TopLeft="129.999992897114,250.466664924953" />
-        <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\DimUbicacion"
-          TopLeft="132.49999276052,325.86666440063" />
+          Size="124,41.6"
+          Id="Package\DimCanal"
+          TopLeft="400.833311432766,328.733331892954" />
         <NodeLayout
           Size="142.4,41.6"
           Id="Package\DimCategoria"
           TopLeft="140.83332563854,402.199997342229" />
         <NodeLayout
+          Size="132,41.6"
+          Id="Package\DimEntidad"
+          TopLeft="129.999992897114,250.466664924953" />
+        <NodeLayout
           Size="125.6,41.6"
           Id="Package\DimGrupo"
           TopLeft="391.666645266945,395.06666429215" />
         <NodeLayout
-          Size="124,41.6"
-          Id="Package\DimCanal"
-          TopLeft="400.833311432766,328.733331892954" />
+          Size="138.4,41.6"
+          Id="Package\DimPrioridad"
+          TopLeft="424.999976779025,112.799999710719" />
         <NodeLayout
           Size="116.8,41.6"
           Id="Package\DimSLA"
@@ -362,17 +358,21 @@
           Id="Package\DimTipoSolucion"
           TopLeft="411.666644174193,183.866665883197" />
         <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\DimPrioridad"
-          TopLeft="424.999976779025,112.799999710719" />
+          Size="142.4,41.6"
+          Id="Package\DimUbicacion"
+          TopLeft="132.49999276052,325.86666440063" />
         <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\BridgeTicketTecnico"
-          TopLeft="631.666632153923,120.599999656479" />
+          Size="132.8,41.6"
+          Id="Package\DimUsuario"
+          TopLeft="119.166660155687,165.533332182235" />
         <NodeLayout
           Size="132,41.6"
           Id="Package\FactTickets"
           TopLeft="649.999964485567,207.266665720476" />
+        <NodeLayout
+          Size="344.8,41.6"
+          Id="Package\Vaciar tabla de hechos FactTickets y BridgeTicketTecnico"
+          TopLeft="0,61.5333329054382" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="172.4,103.133332905438">
@@ -433,6 +433,28 @@
                     Point3="10.4333327414262,25.6666663713588" />
                   <mssgle:LineSegment
                     End="10.4333327414262,35.8333327427176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 10]"
+          TopLeft="717.033298319745,162.199999656479">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0666660639974"
+              Start="0,0"
+              End="0,37.5666660639974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5666660639974" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -645,28 +667,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="60.7666553748984,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 10]"
-          TopLeft="717.033298319745,162.199999656479">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.0666660639974"
-              Start="0,0"
-              End="0,37.5666660639974">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5666660639974" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -12,20 +12,20 @@
   DTS:ObjectName="FactTickets_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{4F77D0F5-C1A6-4198-A132-93295CF9D78D}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{BE094E0C-E6D1-452D-8FC0-60E269FF4336}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Limpieza de tabla BridgeTicketTecnico"
+      DTS:refId="Package\Limpieza de tabla de hechos"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{FBC7795D-6D3D-4DC9-804A-4D05942E7565}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Limpieza de tabla BridgeTicketTecnico"
+      DTS:ObjectName="Limpieza de tabla de hechos"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -3904,7 +3904,7 @@ where [refTable].[UbicacionId_origen] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
       DTS:DTSID="{269D9525-3BDB-46FC-87AD-2A5A07D1ED9D}"
-      DTS:From="Package\Limpieza de tabla BridgeTicketTecnico"
+      DTS:From="Package\Limpieza de tabla de hechos"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
       DTS:To="Package\Llenar FactTickets" />
@@ -3922,8 +3922,8 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="256.8,41.6"
-          Id="Package\Limpieza de tabla BridgeTicketTecnico"
+          Size="210.4,41.6"
+          Id="Package\Limpieza de tabla de hechos"
           TopLeft="191.666656194462,64.9999995479981" />
         <NodeLayout
           Size="163.2,41.6"
@@ -3931,13 +3931,13 @@ where [refTable].[UbicacionId_origen] = ?</property>
           TopLeft="318.333315940368,157.733332236475" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="320.066656194462,106.599999547998">
+          TopLeft="296.866656194462,106.599999547998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79.8666597459061,51.1333326884769"
+              EndConnector="103.066659745906,51.1333326884769"
               Start="0,0"
-              End="79.8666597459061,43.6333326884769">
+              End="103.066659745906,43.6333326884769">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3948,13 +3948,13 @@ where [refTable].[UbicacionId_origen] = ?</property>
                     Point2="0,25.5666663442385"
                     Point3="4,25.5666663442385" />
                   <mssgle:LineSegment
-                    End="75.8666597459061,25.5666663442385" />
+                    End="99.066659745906,25.5666663442385" />
                   <mssgle:CubicBezierSegment
-                    Point1="75.8666597459061,25.5666663442385"
-                    Point2="79.8666597459061,25.5666663442385"
-                    Point3="79.8666597459061,29.5666663442385" />
+                    Point1="99.066659745906,25.5666663442385"
+                    Point2="103.066659745906,25.5666663442385"
+                    Point3="103.066659745906,29.5666663442385" />
                   <mssgle:LineSegment
-                    End="79.8666597459061,43.6333326884769" />
+                    End="103.066659745906,43.6333326884769" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3972,25 +3972,61 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="184,41.6"
+          Id="Package\Llenar FactTickets\Lookup TipoSolucionId"
+          TopLeft="886.814769081129,348.370369814575" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Llenar FactTickets\Lookup SLARespuestaId"
+          TopLeft="780.555512907882,455.925924486216" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Llenar FactTickets\Lookup GrupoSoporteId"
+          TopLeft="1029.96292082119,99.1851844954638" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Llenar FactTickets\Lookup CanalId"
+          TopLeft="544.444414697313,470.370367705233" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Llenar FactTickets\Lookup UbicacionId"
+          TopLeft="454.629604789763,387.111108499545" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Llenar FactTickets\Lookup SolicitanteId"
+          TopLeft="958.185142739873,255.55555487253" />
+        <NodeLayout
           Size="158.4,41.6"
           Id="Package\Llenar FactTickets\Llenar FactTicket"
           TopLeft="618.055521786491,118.155554733917" />
         <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Llenar FactTickets\Leer base de datos GLPI"
-          TopLeft="131.666659472718,38.1333330681589" />
+          Size="165.6,41.6"
+          Id="Package\Llenar FactTickets\Lookup PrioridadId"
+          TopLeft="1041.40736663158,25.9999998191992" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Llenar FactTickets\Lookup CategoriaID"
           TopLeft="338.333314847616,300.733331242071" />
         <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Llenar FactTickets\Lookup EntidadID"
-          TopLeft="247.499986477197,199.066665449275" />
+          Size="193.6,41.6"
+          Id="Package\Llenar FactTickets\Leer base de datos GLPI"
+          TopLeft="131.666659472718,38.1333330681589" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Llenar FactTickets\Lookup TecnicoResolutorId"
+          TopLeft="983.111068615209,182.222221338307" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Llenar FactTickets\Lookup SLAResolucionId"
+          TopLeft="636.111076355534,549.111108479456" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Llenar FactTickets\Data Conversion"
           TopLeft="154.166658243372,119.333332670397" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Llenar FactTickets\Lookup EntidadID"
+          TopLeft="247.499986477197,199.066665449275" />
         <EdgeLayout
           Id="Package\Llenar FactTickets.Paths[Salida de origen de ADO NET]"
           TopLeft="230.316658858045,79.7333330681589">
@@ -4010,424 +4046,8 @@ where [refTable].[UbicacionId_origen] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Data Conversion Output]"
-          TopLeft="232.166658243372,160.933332670397">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="95.7333282338252,38.1333327788777"
-              Start="0,0"
-              End="95.7333282338252,30.6333327788777">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.0666663894388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.0666663894388"
-                    Point2="0,19.0666663894388"
-                    Point3="4,19.0666663894388" />
-                  <mssgle:LineSegment
-                    End="91.7333282338252,19.0666663894388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="91.7333282338252,19.0666663894388"
-                    Point2="95.7333282338252,19.0666663894388"
-                    Point3="95.7333282338252,23.0666663894388" />
-                  <mssgle:LineSegment
-                    End="95.7333282338252,30.6333327788777" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output]"
-          TopLeft="327.899986477197,240.666665449275">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.0333283704191,60.0666657927965"
-              Start="0,0"
-              End="96.0333283704191,52.5666657927965">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.0333328963982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.0333328963982"
-                    Point2="0,30.0333328963982"
-                    Point3="4,30.0333328963982" />
-                  <mssgle:LineSegment
-                    End="92.0333283704191,30.0333328963982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="92.0333283704191,30.0333328963982"
-                    Point2="96.0333283704191,30.0333328963982"
-                    Point3="96.0333283704191,34.0333328963982" />
-                  <mssgle:LineSegment
-                    End="96.0333283704191,52.5666657927965" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.174722533540454,35.0333328963982,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Llenar FactTickets\Lookup UbicacionId"
-          TopLeft="454.629604789763,387.111108499545" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output1]"
-          TopLeft="423.933314847616,342.333331242071">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="115.496289942147,44.7777772574732"
-              Start="0,0"
-              End="115.496289942147,37.2777772574732">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.3888886287366" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.3888886287366"
-                    Point2="0,22.3888886287366"
-                    Point3="4,22.3888886287366" />
-                  <mssgle:LineSegment
-                    End="111.496289942147,22.3888886287366" />
-                  <mssgle:CubicBezierSegment
-                    Point1="111.496289942147,22.3888886287366"
-                    Point2="115.496289942147,22.3888886287366"
-                    Point3="115.496289942147,26.3888886287366" />
-                  <mssgle:LineSegment
-                    End="115.496289942147,37.2777772574732" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="9.55675825232337,27.3888886287366,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Llenar FactTickets\Lookup CanalId"
-          TopLeft="544.444414697313,470.370367705233" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output2]"
-          TopLeft="539.429604789763,428.711108499545">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="80.6148099075499,41.6592592056886"
-              Start="0,0"
-              End="80.6148099075499,34.1592592056886">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.8296296028443" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.8296296028443"
-                    Point2="0,20.8296296028443"
-                    Point3="4,20.8296296028443" />
-                  <mssgle:LineSegment
-                    End="76.6148099075499,20.8296296028443" />
-                  <mssgle:CubicBezierSegment
-                    Point1="76.6148099075499,20.8296296028443"
-                    Point2="80.6148099075499,20.8296296028443"
-                    Point3="80.6148099075499,24.8296296028443" />
-                  <mssgle:LineSegment
-                    End="80.6148099075499,34.1592592056886" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.88398176497505,25.8296296028443,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\Llenar FactTickets\Lookup SLAResolucionId"
-          TopLeft="636.111076355534,549.111108479456" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output3]"
-          TopLeft="620.044414697313,511.970367705233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="82.4666616582213,37.1407407742223"
-              Start="0,0"
-              End="82.4666616582213,29.6407407742223">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1032701192933" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1032701192933"
-                    Point2="0,22.1032701192933"
-                    Point3="4,22.1032701192933" />
-                  <mssgle:LineSegment
-                    End="78.4666616582213,22.1032701192933" />
-                  <mssgle:CubicBezierSegment
-                    Point1="78.4666616582213,22.1032701192933"
-                    Point2="82.4666616582213,22.1032701192933"
-                    Point3="82.4666616582213,26.1032701192933" />
-                  <mssgle:LineSegment
-                    End="82.4666616582213,29.6407407742223" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-6.95805588963938,27.1032701192933,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Llenar FactTickets\Lookup SLARespuestaId"
-          TopLeft="780.555512907882,455.925924486216" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output4]"
-          TopLeft="764.911076355534,549.111108479456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="112.444436552348,-51.5851839932394"
-              Start="0,0"
-              End="112.444436552348,-44.0851839932394">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-16.8857086411652" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-16.8857086411652"
-                    Point2="0,-20.8857086411652"
-                    Point3="4,-20.8857086411652" />
-                  <mssgle:LineSegment
-                    End="108.444436552348,-20.8857086411652" />
-                  <mssgle:CubicBezierSegment
-                    Point1="108.444436552348,-20.8857086411652"
-                    Point2="112.444436552348,-20.8857086411652"
-                    Point3="112.444436552348,-24.8857086411652" />
-                  <mssgle:LineSegment
-                    End="112.444436552348,-44.0851839932394" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.03083155742409,-15.8857086411652,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="184,41.6"
-          Id="Package\Llenar FactTickets\Lookup TipoSolucionId"
-          TopLeft="886.814769081129,348.370369814575" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output5]"
-          TopLeft="877.355512907882,455.925924486216">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.459256173247,-65.9555546716408"
-              Start="0,0"
-              End="101.459256173247,-58.4555546716408">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-28.9777773358204" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-28.9777773358204"
-                    Point2="0,-32.9777773358204"
-                    Point3="4,-32.9777773358204" />
-                  <mssgle:LineSegment
-                    End="97.4592561732472,-32.9777773358204" />
-                  <mssgle:CubicBezierSegment
-                    Point1="97.4592561732472,-32.9777773358204"
-                    Point2="101.459256173247,-32.9777773358204"
-                    Point3="101.459256173247,-36.9777773358204" />
-                  <mssgle:LineSegment
-                    End="101.459256173247,-58.4555546716408" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="2.53824136787362,-27.9777773358204,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Llenar FactTickets\Lookup SolicitanteId"
-          TopLeft="958.185142739873,255.55555487253" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output6]"
-          TopLeft="978.814769081129,348.370369814575">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="65.3703736587435,-51.214814942045"
-              Start="0,0"
-              End="65.3703736587435,-43.714814942045">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-21.6074074710225" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-21.6074074710225"
-                    Point2="0,-25.6074074710225"
-                    Point3="4,-25.6074074710225" />
-                  <mssgle:LineSegment
-                    End="61.3703736587435,-25.6074074710225" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.3703736587435,-25.6074074710225"
-                    Point2="65.3703736587435,-25.6074074710225"
-                    Point3="65.3703736587435,-29.6074074710225" />
-                  <mssgle:LineSegment
-                    End="65.3703736587435,-43.714814942045" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.5061998893783,-20.6074074710225,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Llenar FactTickets\Lookup TecnicoResolutorId"
-          TopLeft="983.111068615209,182.222221338307" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output7]"
-          TopLeft="1044.18514273987,255.55555487253">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.325925875336,-31.733333534223"
-              Start="0,0"
-              End="41.325925875336,-24.233333534223">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-11.8666667671115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-11.8666667671115"
-                    Point2="0,-15.8666667671115"
-                    Point3="4,-15.8666667671115" />
-                  <mssgle:LineSegment
-                    End="37.325925875336,-15.8666667671115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.325925875336,-15.8666667671115"
-                    Point2="41.325925875336,-15.8666667671115"
-                    Point3="41.325925875336,-19.8666667671115" />
-                  <mssgle:LineSegment
-                    End="41.325925875336,-24.233333534223" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.528423781082,-10.8666667671115,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="189.6,41.6"
-          Id="Package\Llenar FactTickets\Lookup GrupoSoporteId"
-          TopLeft="1029.96292082119,99.1851844954638" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output8]"
-          TopLeft="1085.51106861521,182.222221338307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.2518522059843,-41.4370368428436"
-              Start="0,0"
-              End="39.2518522059843,-33.9370368428436">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-16.7185184214218" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-16.7185184214218"
-                    Point2="0,-20.7185184214218"
-                    Point3="4,-20.7185184214218" />
-                  <mssgle:LineSegment
-                    End="35.2518522059843,-20.7185184214218" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.2518522059843,-20.7185184214218"
-                    Point2="39.2518522059843,-20.7185184214218"
-                    Point3="39.2518522059843,-24.7185184214218" />
-                  <mssgle:LineSegment
-                    End="39.2518522059843,-33.9370368428436" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.5654606157579,-15.7185184214218,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\Llenar FactTickets\Lookup PrioridadId"
-          TopLeft="1041.40736663158,25.9999998191992" />
-        <EdgeLayout
-          Id="Package\Llenar FactTickets.Paths[Lookup Match Output9]"
-          TopLeft="1124.48514372639,99.1851844954638">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,-31.5851846762646"
-              Start="0,0"
-              End="0,-24.0851846762646">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-24.0851846762646" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,-17.8472798381323,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4467,9 +4087,531 @@ where [refTable].[UbicacionId_origen] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output9]"
+          TopLeft="1124.48514372639,99.1851844954638">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-31.5851846762646"
+              Start="0,0"
+              End="0,-24.0851846762646">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-24.0851846762646" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,-17.8472798381323,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output8]"
+          TopLeft="1085.51106861521,182.222221338307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.2518522059843,-41.4370368428436"
+              Start="0,0"
+              End="39.2518522059843,-33.9370368428436">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-16.7185184214218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.7185184214218"
+                    Point2="0,-20.7185184214218"
+                    Point3="4,-20.7185184214218" />
+                  <mssgle:LineSegment
+                    End="35.2518522059843,-20.7185184214218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.2518522059843,-20.7185184214218"
+                    Point2="39.2518522059843,-20.7185184214218"
+                    Point3="39.2518522059843,-24.7185184214218" />
+                  <mssgle:LineSegment
+                    End="39.2518522059843,-33.9370368428436" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.5654606157579,-15.7185184214218,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output7]"
+          TopLeft="1044.18514273987,255.55555487253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.325925875336,-31.733333534223"
+              Start="0,0"
+              End="41.325925875336,-24.233333534223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-11.8666667671115" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-11.8666667671115"
+                    Point2="0,-15.8666667671115"
+                    Point3="4,-15.8666667671115" />
+                  <mssgle:LineSegment
+                    End="37.325925875336,-15.8666667671115" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.325925875336,-15.8666667671115"
+                    Point2="41.325925875336,-15.8666667671115"
+                    Point3="41.325925875336,-19.8666667671115" />
+                  <mssgle:LineSegment
+                    End="41.325925875336,-24.233333534223" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.528423781082,-10.8666667671115,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output6]"
+          TopLeft="978.814769081129,348.370369814575">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.3703736587435,-51.214814942045"
+              Start="0,0"
+              End="65.3703736587435,-43.714814942045">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-21.6074074710225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-21.6074074710225"
+                    Point2="0,-25.6074074710225"
+                    Point3="4,-25.6074074710225" />
+                  <mssgle:LineSegment
+                    End="61.3703736587435,-25.6074074710225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.3703736587435,-25.6074074710225"
+                    Point2="65.3703736587435,-25.6074074710225"
+                    Point3="65.3703736587435,-29.6074074710225" />
+                  <mssgle:LineSegment
+                    End="65.3703736587435,-43.714814942045" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.5061998893783,-20.6074074710225,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output5]"
+          TopLeft="877.355512907882,455.925924486216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.459256173247,-65.9555546716408"
+              Start="0,0"
+              End="101.459256173247,-58.4555546716408">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-28.9777773358204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-28.9777773358204"
+                    Point2="0,-32.9777773358204"
+                    Point3="4,-32.9777773358204" />
+                  <mssgle:LineSegment
+                    End="97.4592561732472,-32.9777773358204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.4592561732472,-32.9777773358204"
+                    Point2="101.459256173247,-32.9777773358204"
+                    Point3="101.459256173247,-36.9777773358204" />
+                  <mssgle:LineSegment
+                    End="101.459256173247,-58.4555546716408" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="2.53824136787362,-27.9777773358204,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output4]"
+          TopLeft="764.911076355534,549.111108479456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.444436552348,-51.5851839932394"
+              Start="0,0"
+              End="112.444436552348,-44.0851839932394">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-16.8857086411652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.8857086411652"
+                    Point2="0,-20.8857086411652"
+                    Point3="4,-20.8857086411652" />
+                  <mssgle:LineSegment
+                    End="108.444436552348,-20.8857086411652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.444436552348,-20.8857086411652"
+                    Point2="112.444436552348,-20.8857086411652"
+                    Point3="112.444436552348,-24.8857086411652" />
+                  <mssgle:LineSegment
+                    End="112.444436552348,-44.0851839932394" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.03083155742409,-15.8857086411652,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output3]"
+          TopLeft="620.044414697313,511.970367705233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.4666616582213,37.1407407742223"
+              Start="0,0"
+              End="82.4666616582213,29.6407407742223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1032701192933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1032701192933"
+                    Point2="0,22.1032701192933"
+                    Point3="4,22.1032701192933" />
+                  <mssgle:LineSegment
+                    End="78.4666616582213,22.1032701192933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.4666616582213,22.1032701192933"
+                    Point2="82.4666616582213,22.1032701192933"
+                    Point3="82.4666616582213,26.1032701192933" />
+                  <mssgle:LineSegment
+                    End="82.4666616582213,29.6407407742223" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-6.95805588963938,27.1032701192933,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output2]"
+          TopLeft="539.429604789763,428.711108499545">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.6148099075499,41.6592592056886"
+              Start="0,0"
+              End="80.6148099075499,34.1592592056886">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8296296028443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8296296028443"
+                    Point2="0,20.8296296028443"
+                    Point3="4,20.8296296028443" />
+                  <mssgle:LineSegment
+                    End="76.6148099075499,20.8296296028443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76.6148099075499,20.8296296028443"
+                    Point2="80.6148099075499,20.8296296028443"
+                    Point3="80.6148099075499,24.8296296028443" />
+                  <mssgle:LineSegment
+                    End="80.6148099075499,34.1592592056886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.88398176497505,25.8296296028443,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output1]"
+          TopLeft="423.933314847616,342.333331242071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.496289942147,44.7777772574732"
+              Start="0,0"
+              End="115.496289942147,37.2777772574732">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3888886287366" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.3888886287366"
+                    Point2="0,22.3888886287366"
+                    Point3="4,22.3888886287366" />
+                  <mssgle:LineSegment
+                    End="111.496289942147,22.3888886287366" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.496289942147,22.3888886287366"
+                    Point2="115.496289942147,22.3888886287366"
+                    Point3="115.496289942147,26.3888886287366" />
+                  <mssgle:LineSegment
+                    End="115.496289942147,37.2777772574732" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.55675825232337,27.3888886287366,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Lookup Match Output]"
+          TopLeft="327.899986477197,240.666665449275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.0333283704191,60.0666657927965"
+              Start="0,0"
+              End="96.0333283704191,52.5666657927965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0333328963982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0333328963982"
+                    Point2="0,30.0333328963982"
+                    Point3="4,30.0333328963982" />
+                  <mssgle:LineSegment
+                    End="92.0333283704191,30.0333328963982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.0333283704191,30.0333328963982"
+                    Point2="96.0333283704191,30.0333328963982"
+                    Point3="96.0333283704191,34.0333328963982" />
+                  <mssgle:LineSegment
+                    End="96.0333283704191,52.5666657927965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-0.174722533540454,35.0333328963982,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar FactTickets.Paths[Data Conversion Output]"
+          TopLeft="232.166658243372,160.933332670397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.7333282338252,38.1333327788777"
+              Start="0,0"
+              End="95.7333282338252,30.6333327788777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0666663894388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0666663894388"
+                    Point2="0,19.0666663894388"
+                    Point3="4,19.0666663894388" />
+                  <mssgle:LineSegment
+                    End="91.7333282338252,19.0666663894388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.7333282338252,19.0666663894388"
+                    Point2="95.7333282338252,19.0666663894388"
+                    Point3="95.7333282338252,23.0666663894388" />
+                  <mssgle:LineSegment
+                    End="95.7333282338252,30.6333327788777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup TipoSolucionId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimTipoSolucion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup SLARespuestaId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSLA]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup GrupoSoporteId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimGrupo]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup CanalId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCanal]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup UbicacionId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimUbicacion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar FactTickets\Lookup SolicitanteId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimUsuario]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Llenar FactTickets\Llenar FactTicket">
     <Properties>
@@ -4484,8 +4626,23 @@ where [refTable].[UbicacionId_origen] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Leer base de datos GLPI">
+    design-time-name="Package\Llenar FactTickets\Lookup PrioridadId">
     <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPrioridad]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -4497,7 +4654,7 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4507,7 +4664,7 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4515,68 +4672,30 @@ where [refTable].[UbicacionId_origen] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup EntidadID">
+    design-time-name="Package\Llenar FactTickets\Leer base de datos GLPI">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEntidad]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup UbicacionId">
+    design-time-name="Package\Llenar FactTickets\Lookup TecnicoResolutorId">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimUbicacion]</Value>
+          type="q3:string">[dbo].[DimUsuario]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup CanalId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimCanal]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4589,7 +4708,7 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4599,7 +4718,7 @@ where [refTable].[UbicacionId_origen] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4607,137 +4726,22 @@ where [refTable].[UbicacionId_origen] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup SLARespuestaId">
+    design-time-name="Package\Llenar FactTickets\Lookup EntidadID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimSLA]</Value>
+          type="q3:string">[dbo].[DimEntidad]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup TipoSolucionId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimTipoSolucion]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup SolicitanteId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimUsuario]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup TecnicoResolutorId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimUsuario]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup GrupoSoporteId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimGrupo]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar FactTickets\Lookup PrioridadId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimPrioridad]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
