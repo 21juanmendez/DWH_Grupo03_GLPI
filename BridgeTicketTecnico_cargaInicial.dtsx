@@ -12,8 +12,8 @@
   DTS:ObjectName="BridgeTicketTecnico_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{4D06F7B2-57A8-4D21-835D-2B4044C62F7D}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{0A69E094-1607-44F1-BA44-B0EA353570B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -659,17 +659,57 @@ where [refTable].[UsuarioId_origen] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Llenar BridgeTicketTecnico\Leer base de datos GLPI"
-          TopLeft="131.666659472718,38.1333330681589" />
-        <NodeLayout
           Size="204.8,41.6"
           Id="Package\Llenar BridgeTicketTecnico\Llenar BridgeTicketTecnico"
           TopLeft="478.333307198354,284.266664689912" />
         <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Llenar BridgeTicketTecnico\Leer base de datos GLPI"
+          TopLeft="131.666659472718,38.1333330681589" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Llenar BridgeTicketTecnico\Data Conversion"
+          TopLeft="161.66665783359,121.933332652317" />
+        <NodeLayout
           Size="162.4,41.6"
           Id="Package\Llenar BridgeTicketTecnico\Lookup TecnicoID"
           TopLeft="345.833314437834,181.133332073755" />
+        <EdgeLayout
+          Id="Package\Llenar BridgeTicketTecnico.Paths[Salida de origen de ADO NET]"
+          TopLeft="228.466659472718,79.7333330681589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.1999983608719,42.1999995841582"
+              Start="0,0"
+              End="11.1999983608719,34.6999995841582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0999997920791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0999997920791"
+                    Point2="0,21.0999997920791"
+                    Point3="4,21.0999997920791" />
+                  <mssgle:LineSegment
+                    End="7.19999836087186,21.0999997920791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.19999836087186,21.0999997920791"
+                    Point2="11.1999983608719,21.0999997920791"
+                    Point3="11.1999983608719,25.0999997920791" />
+                  <mssgle:LineSegment
+                    End="11.1999983608719,34.6999995841582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Llenar BridgeTicketTecnico.Paths[Lookup Match Output]"
           TopLeft="427.033314437834,222.733332073755">
@@ -706,44 +746,6 @@ where [refTable].[UsuarioId_origen] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Llenar BridgeTicketTecnico\Data Conversion"
-          TopLeft="161.66665783359,121.933332652317" />
-        <EdgeLayout
-          Id="Package\Llenar BridgeTicketTecnico.Paths[Salida de origen de ADO NET]"
-          TopLeft="228.466659472718,79.7333330681589">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.1999983608719,42.1999995841582"
-              Start="0,0"
-              End="11.1999983608719,34.6999995841582">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.0999997920791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.0999997920791"
-                    Point2="0,21.0999997920791"
-                    Point3="4,21.0999997920791" />
-                  <mssgle:LineSegment
-                    End="7.19999836087186,21.0999997920791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.19999836087186,21.0999997920791"
-                    Point2="11.1999983608719,21.0999997920791"
-                    Point3="11.1999983608719,25.0999997920791" />
-                  <mssgle:LineSegment
-                    End="11.1999983608719,34.6999995841582" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Llenar BridgeTicketTecnico.Paths[Data Conversion Output]"
           TopLeft="317.66665783359,142.733332652317">
@@ -775,20 +777,14 @@ where [refTable].[UsuarioId_origen] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar BridgeTicketTecnico\Leer base de datos GLPI">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Llenar BridgeTicketTecnico\Llenar BridgeTicketTecnico">
     <Properties>
@@ -803,12 +799,20 @@ where [refTable].[UsuarioId_origen] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Llenar BridgeTicketTecnico\Leer base de datos GLPI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Llenar BridgeTicketTecnico\Lookup TecnicoID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -818,7 +822,7 @@ where [refTable].[UsuarioId_origen] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
