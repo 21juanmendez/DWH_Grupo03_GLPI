@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JUAN-MENDEZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="h87Xehc0gQg=" SSIS:IV="YNBsRtlOeVIU290i9iFWcQ==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">mfsca16TwVrHaS4rYZkUQ4n4U1z+T6MvZWIVRt1yiVPFxTrFCT6Yo9OQAh8TLOFWms3tVzbWGMAjE3nHl+CneAWmwh2un9AKMgLZ4AqK+bDiLzxcA366YEP5S8v7kNvgxi9CjE9MprEgZplyYQoVyD8PXt6FLq1aeLdNyfknsyXaK/zERFe6e23vqvcb8nhU</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="O1a6zFl/GKU=" SSIS:IV="If2aH/1WTCQneqOu02heUg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">0WcV1Zf7x5BU8Br2LlDgypxZ+bLJhM4PmPyA0Mk0iDCG6M/z4CyfZcuq/q/SpwL5rODbnc9224e0n2almbCbcm7zDxdN8gs2STWD+khBZff5Dac8+V+o2ViBB5zeWxdzNBC5bjX59cSbzgsYINMf4NVFFYhZ4mwLn7KMEcJpO04PoZZBE9xXYXjgC+g5/Tvv</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -41,6 +41,7 @@
           <SSIS:Package SSIS:Name="DimGrupo_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimTipoSolucion_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="BridgeTicketTecnico_cargaInicial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="FactTickets_cargaInicial.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DWH_Local.conmgr" />
@@ -404,10 +405,27 @@
                 <SSIS:Property SSIS:Name="Name">BridgeTicketTecnico_cargaInicial</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{62DF7488-5406-46C5-AE3D-27378AD72507}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4D06F7B2-57A8-4D21-835D-2B4044C62F7D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="FactTickets_cargaInicial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{5C40B96C-F719-4BF5-85CB-2F7657C693F7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">FactTickets_cargaInicial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">32</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5320C7B1-37FE-4DA1-8F4F-89F08BD58723}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
