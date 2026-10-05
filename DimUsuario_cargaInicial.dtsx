@@ -12,8 +12,8 @@
   DTS:ObjectName="DimUsuario_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{FD76F16F-B0AF-4B6F-A939-4FB281E7B146}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{0ED2AC1A-C2B1-43D1-A3E8-97E40CB2DF6D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,7 +32,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
-          SQLTask:SqlStatementSource="DELETE FROM DimUsuario WHERE UsuarioKey &gt; 0;&#xA;DBCC CHECKIDENT('DimUsuario', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM DimUsuario WHERE UsuarioKey &gt;= 0;&#xA;DBCC CHECKIDENT('DimUsuario', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

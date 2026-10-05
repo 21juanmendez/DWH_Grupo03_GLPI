@@ -12,8 +12,8 @@
   DTS:ObjectName="DimSLA_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{279DEA2E-9518-4837-AB7D-2FE348FD3470}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{29E92176-59EC-4AA3-A178-E8F4471EB51C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,7 +32,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}"
-          SQLTask:SqlStatementSource="DELETE FROM DimSLA WHERE SLAKey &gt; 0; &#xA;DBCC CHECKIDENT('DimSLA', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM DimSLA WHERE SLAKey &gt;= 0;&#xA;DBCC CHECKIDENT('DimSLA', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
