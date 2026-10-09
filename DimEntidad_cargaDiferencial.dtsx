@@ -1,0 +1,1419 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2026 5:37:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JUAN-MENDEZ"
+  DTS:CreatorName="JUAN-MENDEZ\Juan"
+  DTS:DTSID="{58922BA0-870A-4575-964A-420F3B939E62}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="DimEntidad_cargaDiferencial"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{50C63B69-8972-48B9-8A2F-4D4313938E81}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1C9371BF-95BB-40B9-B9FD-F5BEA0EF0310}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\CMD_DimEntidad_Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_DimEntidad_Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.sp_DimEntidad_Update ?, ?, ?, ?, ?, ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CMD_DimEntidad_Update.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[EntidadId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="EntidadId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@EntidadId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[Nivel_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="Nivel_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Nivel]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[Entidad_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Entidad_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Entidad]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Entidad_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[EntidadCompleta_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EntidadCompleta_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@EntidadCompleta]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadCompleta_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[Ciudad_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Ciudad_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Ciudad]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ciudad_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[Estado_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Estado_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Estado]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Estado_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].Columns[Pais_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Pais_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Pais]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Pais_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Nivel]"
+                      dataType="i4"
+                      name="@Nivel">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@EntidadId_origen]"
+                      dataType="i4"
+                      name="@EntidadId_origen">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Entidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Entidad">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@EntidadCompleta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@EntidadCompleta">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Ciudad">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Estado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Estado">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input].ExternalColumns[@Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Pais">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimEntidad_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DCV_Tipos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCV_Tipos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Nivel]"
+                      cachedDataType="i8"
+                      cachedName="Nivel"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Nivel]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[EntidadId_origen]"
+                      cachedDataType="ui4"
+                      cachedName="EntidadId_origen"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Entidad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Entidad"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[EntidadCompleta]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EntidadCompleta"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ciudad"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Estado"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Pais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Pais"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]"
+                      name="EntidadId_origen_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]"
+                      name="Nivel_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Nivel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Entidad_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Entidad_nuevo]"
+                      name="Entidad_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadCompleta_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadCompleta_nuevo]"
+                      name="EntidadCompleta_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ciudad_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ciudad_nuevo]"
+                      name="Ciudad_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Estado_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Estado_nuevo]"
+                      name="Estado_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Pais_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Pais_nuevo]"
+                      name="Pais_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DST_DimEntidad_Insert"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST_DimEntidad_Insert"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimEntidad]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DST_DimEntidad_Insert.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[Nivel_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="Nivel_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Nivel]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Nivel_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[Entidad_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Entidad_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Entidad]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Entidad_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[EntidadCompleta_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EntidadCompleta_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EntidadCompleta]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadCompleta_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[Ciudad_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Ciudad_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ciudad_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[Estado_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Estado_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Estado_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[Pais_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Pais_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Pais_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].Columns[EntidadId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="EntidadId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EntidadId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Nivel]"
+                      dataType="i4"
+                      name="Nivel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EntidadKey]"
+                      dataType="i4"
+                      name="EntidadKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EntidadId_origen]"
+                      dataType="i4"
+                      name="EntidadId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Entidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Entidad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EntidadCompleta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EntidadCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Pais" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DST_DimEntidad_Insert.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimEntidad_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimEntidad_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimEntidad_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\LKP_DimEntidad"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DimEntidad"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT EntidadKey, EntidadId_origen, Entidad, EntidadCompleta, Nivel, Ciudad, Estado, Pais
+FROM DimEntidad
+WHERE EntidadKey &gt; 0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT EntidadKey, EntidadId_origen, Entidad, EntidadCompleta, Nivel, Ciudad, Estado, Pais
+FROM DimEntidad
+WHERE EntidadKey &gt; 0) [refTable]
+where [refTable].[EntidadId_origen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EntidadKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EntidadId_origen" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Entidad" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EntidadCompleta" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Nivel" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ciudad" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Estado" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Pais" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\LKP_DimEntidad.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input].Columns[EntidadId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="EntidadId_origen_nuevo"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[EntidadId_origen_nuevo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">EntidadId_origen</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Nivel_lookup]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Nivel_lookup]"
+                      name="Nivel_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Nivel</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[EntidadKey_lookup]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[EntidadKey_lookup]"
+                      name="EntidadKey_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EntidadKey</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Entidad_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Entidad_lookup]"
+                      name="Entidad_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Entidad</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[EntidadCompleta_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[EntidadCompleta_lookup]"
+                      name="EntidadCompleta_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EntidadCompleta</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Ciudad_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Ciudad_lookup]"
+                      name="Ciudad_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Ciudad</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Estado_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Estado_lookup]"
+                      name="Estado_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Estado</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Pais_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output].Columns[Pais_lookup]"
+                      name="Pais_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Pais</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SRC_GLPI_entities"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="SRC_GLPI_entities"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    e.id                                                                AS EntidadId_origen,
+    COALESCE(NULLIF(TRIM(e.name),''),'Sin nombre')                      AS Entidad,
+    CAST(COALESCE(NULLIF(TRIM(e.completename),''),
+                  NULLIF(TRIM(e.name),''),'Sin nombre') AS CHAR(255))   AS EntidadCompleta,
+    COALESCE(e.level,1)                                                 AS Nivel,
+    COALESCE(NULLIF(TRIM(e.town),''),'No especificado')                 AS Ciudad,
+    COALESCE(NULLIF(TRIM(e.state),''),'No especificado')                AS Estado,
+    COALESCE(NULLIF(TRIM(e.country),''),'No especificado')              AS Pais
+FROM glpi_entities e
+ORDER BY e.id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SRC_GLPI_entities.Connections[IDbConnection]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadId_origen]"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadId_origen]"
+                      name="EntidadId_origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Entidad]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Entidad]"
+                      name="Entidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadCompleta]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[EntidadCompleta]"
+                      name="EntidadCompleta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Nivel]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Nivel]"
+                      name="Nivel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
+                      name="Ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Estado]"
+                      name="Estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].Columns[Pais]"
+                      name="Pais"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadId_origen]"
+                      dataType="ui4"
+                      name="EntidadId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Entidad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Entidad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[EntidadCompleta]"
+                      dataType="wstr"
+                      length="255"
+                      name="EntidadCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Nivel]"
+                      dataType="i8"
+                      name="Nivel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="255"
+                      name="Pais" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadId_origen]"
+                      dataType="ui4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadId_origen]"
+                      name="EntidadId_origen" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Entidad]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Entidad]"
+                      name="Entidad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadCompleta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[EntidadCompleta]"
+                      name="EntidadCompleta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Nivel]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Nivel]"
+                      name="Nivel" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
+                      name="Ciudad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
+                      name="Estado" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
+                      name="Pais" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\LKP_DimEntidad.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\CMD_DimEntidad_Update.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\DST_DimEntidad_Insert.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\LKP_DimEntidad.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+              endId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Data Flow Task\SRC_GLPI_entities.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Data Flow Task\LKP_DimEntidad"
+          TopLeft="414.999993816018,165.599997556209" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Data Flow Task\DST_DimEntidad_Insert"
+          TopLeft="708.999989435077,193.999997109175" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Data Flow Task\SRC_GLPI_entities"
+          TopLeft="287.999995708466,76.9999988526106" />
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\Data Flow Task\CMD_DimEntidad_Update"
+          TopLeft="613.999990850687,65.199999254942" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\DCV_Tipos"
+          TopLeft="155.999997675419,158.999997630715" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="287.199997675419,183.099997593462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.799996140599,0"
+              Start="0,0"
+              End="120.299996140599,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="120.299996140599,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+          TopLeft="372.399995708466,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-150.799998033047,40.3999987781044"
+              Start="0,0"
+              End="-150.799998033047,32.8999987781044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1999993890522"
+                    Point2="0,20.1999993890522"
+                    Point3="-4,20.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-146.799998033047,20.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.799998033047,20.1999993890522"
+                    Point2="-150.799998033047,20.1999993890522"
+                    Point3="-150.799998033047,24.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-150.799998033047,32.8999987781044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="572.599993816018,186.399997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.399995619059,28.399999552966"
+              Start="0,0"
+              End="128.899995619059,28.399999552966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.1999978095295,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.1999978095295,0"
+                    Point2="68.1999978095295,0"
+                    Point3="68.1999978095295,4" />
+                  <mssgle:LineSegment
+                    End="68.1999978095295,24.399999552966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.1999978095295,24.399999552966"
+                    Point2="68.1999978095295,28.399999552966"
+                    Point3="72.1999978095295,28.399999552966" />
+                  <mssgle:LineSegment
+                    End="128.899995619059,28.399999552966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.3936110907795,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="493.799993816018,165.599997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.599997034669,-58.799998301267"
+              Start="0,0"
+              End="220.599997034669,-51.299998301267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.3999991506335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.3999991506335"
+                    Point2="0,-29.3999991506335"
+                    Point3="4,-29.3999991506335" />
+                  <mssgle:LineSegment
+                    End="216.599997034669,-29.3999991506335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="216.599997034669,-29.3999991506335"
+                    Point2="220.599997034669,-29.3999991506335"
+                    Point3="220.599997034669,-33.3999991506335" />
+                  <mssgle:LineSegment
+                    End="220.599997034669,-51.299998301267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="62.1086117985845,-24.3999991506335,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DST_DimEntidad_Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\LKP_DimEntidad">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SRC_GLPI_entities">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

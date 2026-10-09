@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JUAN-MENDEZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="vdqM0SFYmYg=" SSIS:IV="2xBd9lZ5ht/ndBHIqN5hDA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">G4ki6Kym78UXJfj55cFG0Re8G0igWXiyylgNnoePDEqGUQP5I0TowWmb2zWhcqm7SiWaCaECTkNtTn6CRfHEdIG/P3Oiphij/gPxfugcSG+y82+t4uVKVB6ZbGg+obkItvFbt6YtDsRRFq5C06QSMSnFzdzwkZAoq/OwboAJoYp8BypJcof2KpadLGjWafod</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="hDqTCNSOfsg=" SSIS:IV="9qiGhmUQf8OOY7l8teTDaA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">eJKG/T76po8WWfUdLd82RwDMGDHFVcBo1A2xveYiaz/vK7k7y1HJhGE590ks5uhfKDxvrCp3jUVPZ1/L1+FCgTHOSOn7ofDJncv4XoU3jfzvJ364mLTGULFy9KvPfewO6SsKpanRzOvJWuWeQbqX9+WPoXEPyyRHuNM8U7gy2Y/0bmjyRXE2fpG8+SuuwzOU</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -43,6 +43,9 @@
           <SSIS:Package SSIS:Name="BridgeTicketTecnico_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="FactTickets_cargaInicial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Orquestador_cargaInicial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimEntidad_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimGrupo_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimUbicacion_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DWH_Local.conmgr" />
@@ -444,6 +447,57 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{19A1ACC7-07B5-485F-9317-634256037A3B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimEntidad_cargaDiferencial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{58922BA0-870A-4575-964A-420F3B939E62}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimEntidad_cargaDiferencial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0A7DD99F-AB51-4999-BADD-C670D93F1461}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimGrupo_cargaDiferencial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{36D4C64F-9893-41CF-B210-75C5898DC929}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimGrupo_cargaDiferencial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DFCD19F6-FBAD-4091-906A-520F6441A168}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimUbicacion_cargaDiferencial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{60D71B6C-56FC-4FA3-8BAB-FC27AE51983E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimUbicacion_cargaDiferencial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F82AF47B-7606-4232-B0F4-AD5673F1B7C4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
