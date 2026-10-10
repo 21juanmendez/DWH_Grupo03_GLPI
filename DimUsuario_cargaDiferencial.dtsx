@@ -1,0 +1,1818 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2026 5:37:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JUAN-MENDEZ"
+  DTS:CreatorName="JUAN-MENDEZ\Juan"
+  DTS:DTSID="{36D80B8C-CD25-47E1-AA86-3EC39C2EAE79}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="DimUsuario_cargaDiferencial"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{C213945C-C906-4305-A013-4766527677DE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A1BAA024-07E9-4D44-8035-B727972F82F5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\CMD_DimUsuario_Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_DimUsuario_Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.sp_DimUsuario_SCD2 ?, ?, ?, ?, ?, ?, ?, ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CMD_DimUsuario_Update.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Categoria_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Categoria_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Categoria]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[UsuarioId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="UsuarioId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@UsuarioId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Login_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Login_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Login]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Login_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[NombreCompleto_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NombreCompleto_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@NombreCompleto]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[NombreCompleto_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Perfil_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Perfil_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Perfil]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Perfil_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Telefono_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Telefono_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Telefono]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Telefono_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Ubicacion_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Ubicacion_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Ubicacion]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ubicacion_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Titulo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Titulo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Titulo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Titulo_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].Columns[Activo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Activo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Activo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Activo_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Categoria">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@UsuarioId_origen]"
+                      dataType="i4"
+                      name="@UsuarioId_origen">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Login]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Login">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@NombreCompleto">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Perfil]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Perfil">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="@Telefono">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Ubicacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Ubicacion">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Titulo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="@Titulo">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input].ExternalColumns[@Activo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="@Activo">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CMD_DimUsuario_Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DCV_Tipos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCV_Tipos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Categoria"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[UsuarioId_origen]"
+                      cachedDataType="ui4"
+                      cachedName="UsuarioId_origen"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[UsuarioId_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Login]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Login"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Login]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[NombreCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="NombreCompleto"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[NombreCompleto]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Perfil]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Perfil"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Perfil]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telefono"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Telefono]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Ubicacion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ubicacion"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Titulo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Titulo"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Titulo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input].Columns[Activo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Activo"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Activo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]"
+                      name="UsuarioId_origen_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[UsuarioId_origen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Login_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Login_nuevo]"
+                      name="Login_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Login]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[NombreCompleto_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[NombreCompleto_nuevo]"
+                      name="NombreCompleto_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[NombreCompleto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Perfil_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Perfil_nuevo]"
+                      name="Perfil_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Perfil]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Telefono_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Telefono_nuevo]"
+                      name="Telefono_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Telefono]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ubicacion_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ubicacion_nuevo]"
+                      name="Ubicacion_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Titulo_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Titulo_nuevo]"
+                      name="Titulo_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Titulo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]"
+                      name="Categoria_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Activo_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Activo_nuevo]"
+                      name="Activo_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Activo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaInicio_nuevo]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaInicio_nuevo]"
+                      name="FechaInicio_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaFin_nuevo]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaFin_nuevo]"
+                      name="FechaFin_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)"9999-12-31"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)"9999-12-31"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[EsVigente_nuevo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[EsVigente_nuevo]"
+                      name="EsVigente_nuevo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,3,1252)"Si"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,3,1252)"Si"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DST_DimUsuario_Insert"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST_DimUsuario_Insert"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimUsuario]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DST_DimUsuario_Insert.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Categoria_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Categoria_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Categoria_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[UsuarioId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="UsuarioId_origen_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioId_origen]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Login_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Login_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Login]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Login_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[NombreCompleto_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NombreCompleto_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[NombreCompleto]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[NombreCompleto_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Perfil_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Perfil_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Perfil]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Perfil_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Telefono_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Telefono_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Telefono]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Telefono_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Ubicacion_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Ubicacion_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Ubicacion]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Ubicacion_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Titulo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Titulo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Titulo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Titulo_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[Activo_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Activo_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[Activo_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[FechaInicio_nuevo]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaInicio_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaInicio_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[FechaFin_nuevo]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaFin_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[FechaFin]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FechaFin_nuevo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].Columns[EsVigente_nuevo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="EsVigente_nuevo"
+                      externalMetadataColumnId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EsVigente]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[EsVigente_nuevo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioKey]"
+                      dataType="i4"
+                      name="UsuarioKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioId_origen]"
+                      dataType="i4"
+                      name="UsuarioId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Login]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Login" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Perfil]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Perfil" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Ubicacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Ubicacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Titulo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Titulo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Activo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
+                      dataType="dbDate"
+                      name="FechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[FechaFin]"
+                      dataType="dbDate"
+                      name="FechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input].ExternalColumns[EsVigente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="EsVigente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DST_DimUsuario_Insert.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimUsuario_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DST_DimUsuario_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DST_DimUsuario_Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\LKP_DimUsuario"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DimUsuario"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT UsuarioKey, UsuarioId_origen, Login, NombreCompleto, Perfil, Telefono, Ubicacion, Titulo, Categoria, Activo
+FROM DimUsuario
+WHERE EsVigente = 'Si' AND UsuarioKey &gt; 0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT UsuarioKey, UsuarioId_origen, Login, NombreCompleto, Perfil, Telefono, Ubicacion, Titulo, Categoria, Activo
+FROM DimUsuario
+WHERE EsVigente = 'Si' AND UsuarioKey &gt; 0) [refTable]
+where [refTable].[UsuarioId_origen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UsuarioKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UsuarioId_origen" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Login" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NombreCompleto" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Perfil" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Telefono" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Ubicacion" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Titulo" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Categoria" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Activo" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\LKP_DimUsuario.Connections[OleDbConnection]"
+                  connectionManagerID="{31D28ED9-DB65-40E8-9BC1-08E073A88D3B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH_Local]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input].Columns[UsuarioId_origen_nuevo]"
+                      cachedDataType="i4"
+                      cachedName="UsuarioId_origen_nuevo"
+                      lineageId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output].Columns[UsuarioId_origen_nuevo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">UsuarioId_origen</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[UsuarioKey_lookup]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[UsuarioKey_lookup]"
+                      name="UsuarioKey_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UsuarioKey</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Login_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Login_lookup]"
+                      name="Login_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Login</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[NombreCompleto_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[NombreCompleto_lookup]"
+                      name="NombreCompleto_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">NombreCompleto</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Perfil_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Perfil_lookup]"
+                      name="Perfil_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Perfil</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Telefono_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Telefono_lookup]"
+                      name="Telefono_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Telefono</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Ubicacion_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Ubicacion_lookup]"
+                      name="Ubicacion_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Ubicacion</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Titulo_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Titulo_lookup]"
+                      name="Titulo_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Titulo</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Categoria_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Categoria_lookup]"
+                      name="Categoria_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Categoria</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Activo_lookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="3"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output].Columns[Activo_lookup]"
+                      name="Activo_lookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Activo</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SRC_GLPI_users"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="SRC_GLPI_users"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    u.id AS UsuarioId_origen,
+    COALESCE(NULLIF(TRIM(u.name),''),'Desconocido') AS Login,
+    COALESCE(NULLIF(TRIM(CONCAT_WS(' ', u.firstname, u.realname)),''),
+             NULLIF(TRIM(u.name),''),'Desconocido') AS NombreCompleto,
+    COALESCE((SELECT p.name
+              FROM glpi_profiles_users pu
+                       JOIN glpi_profiles p ON p.id = pu.profiles_id
+              WHERE pu.users_id = u.id
+              ORDER BY pu.is_default_profile DESC, p.id ASC
+              LIMIT 1),'Sin perfil') AS Perfil,
+    COALESCE(NULLIF(TRIM(u.phone),''),
+             NULLIF(TRIM(u.mobile),''),'No disponible') AS Telefono,
+    CAST(COALESCE(NULLIF(TRIM(l.completename),''),'Sin ubicacion') AS CHAR(255)) AS Ubicacion,
+    COALESCE(NULLIF(TRIM(ut.name),''),'Sin titulo') AS Titulo,
+    COALESCE(NULLIF(TRIM(uc.name),''),'Sin categoria') AS Categoria,
+    CASE WHEN u.is_active = 1 THEN 'Si' ELSE 'No' END AS Activo
+FROM glpi_users u
+         LEFT JOIN glpi_locations      l  ON l.id  = u.locations_id
+         LEFT JOIN glpi_usertitles     ut ON ut.id = u.usertitles_id
+         LEFT JOIN glpi_usercategories uc ON uc.id = u.usercategories_id
+ORDER BY u.id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SRC_GLPI_users.Connections[IDbConnection]"
+                  connectionManagerID="{D85F1097-0D72-458F-9B0E-EACC8D7086D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[GLPI_MySQL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[UsuarioId_origen]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[UsuarioId_origen]"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[UsuarioId_origen]"
+                      name="UsuarioId_origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Login]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Login]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Login]"
+                      name="Login"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[NombreCompleto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreCompleto]"
+                      length="511"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[NombreCompleto]"
+                      name="NombreCompleto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Perfil]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Perfil]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Perfil]"
+                      name="Perfil"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Telefono]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Ubicacion]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Ubicacion]"
+                      name="Ubicacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Titulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Titulo]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Titulo]"
+                      name="Titulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Activo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Activo]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].Columns[Activo]"
+                      name="Activo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[UsuarioId_origen]"
+                      dataType="ui4"
+                      name="UsuarioId_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Login]"
+                      dataType="wstr"
+                      length="255"
+                      name="Login" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreCompleto]"
+                      dataType="wstr"
+                      length="511"
+                      name="NombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Perfil]"
+                      dataType="wstr"
+                      length="255"
+                      name="Perfil" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Ubicacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ubicacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Titulo]"
+                      dataType="wstr"
+                      length="255"
+                      name="Titulo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET].ExternalColumns[Activo]"
+                      dataType="wstr"
+                      length="2"
+                      name="Activo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[UsuarioId_origen]"
+                      dataType="ui4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[UsuarioId_origen]"
+                      name="UsuarioId_origen" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Login]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Login]"
+                      name="Login" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[NombreCompleto]"
+                      dataType="wstr"
+                      length="511"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[NombreCompleto]"
+                      name="NombreCompleto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Perfil]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Perfil]"
+                      name="Perfil" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Telefono]"
+                      name="Telefono" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Ubicacion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Ubicacion]"
+                      name="Ubicacion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Titulo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Titulo]"
+                      name="Titulo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Activo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[Activo]"
+                      name="Activo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\LKP_DimUsuario.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\DCV_Tipos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\DST_DimUsuario_Insert.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\CMD_DimUsuario_Update.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\LKP_DimUsuario.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+              endId="Package\Data Flow Task\DCV_Tipos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Data Flow Task\SRC_GLPI_users.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Data Flow Task\LKP_DimUsuario"
+          TopLeft="414.999993816018,165.599997556209" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\Data Flow Task\DST_DimUsuario_Insert"
+          TopLeft="613.743390309078,265.712550723049" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Data Flow Task\SRC_GLPI_users"
+          TopLeft="287.999995708466,76.9999988526106" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Data Flow Task\CMD_DimUsuario_Update"
+          TopLeft="613.999990850687,65.199999254942" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\DCV_Tipos"
+          TopLeft="155.999997675419,158.999997630715" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="287.199997675419,183.099997593462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.799996140599,0"
+              Start="0,0"
+              End="120.299996140599,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="120.299996140599,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+          TopLeft="368.399995708466,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.799998033047,40.3999987781044"
+              Start="0,0"
+              End="-146.799998033047,32.8999987781044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1999993890522"
+                    Point2="0,20.1999993890522"
+                    Point3="-4,20.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-142.799998033047,20.1999993890522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.799998033047,20.1999993890522"
+                    Point2="-146.799998033047,20.1999993890522"
+                    Point3="-146.799998033047,24.1999993890522" />
+                  <mssgle:LineSegment
+                    End="-146.799998033047,32.8999987781044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="494.199993816018,165.599997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.599997034669,-58.799998301267"
+              Start="0,0"
+              End="220.599997034669,-51.299998301267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.3999991506335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.3999991506335"
+                    Point2="0,-29.3999991506335"
+                    Point3="4,-29.3999991506335" />
+                  <mssgle:LineSegment
+                    End="216.599997034669,-29.3999991506335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="216.599997034669,-29.3999991506335"
+                    Point2="220.599997034669,-29.3999991506335"
+                    Point3="220.599997034669,-33.3999991506335" />
+                  <mssgle:LineSegment
+                    End="220.599997034669,-51.299998301267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="62.1086117985845,-24.3999991506335,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="418.253836182486,258.999998198946" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="494.426914999252,207.199997556209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.8000006427372"
+              Start="0,0"
+              End="0,44.3000006427372">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.3000006427372" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,16.3453128213686,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="571.053836182486,283.156274460998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.6895541265915,0"
+              Start="0,0"
+              End="35.1895541265915,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.1895541265915,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DST_DimUsuario_Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\LKP_DimUsuario">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SRC_GLPI_users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

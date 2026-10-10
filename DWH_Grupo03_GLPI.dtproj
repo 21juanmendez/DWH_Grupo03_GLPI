@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JUAN-MENDEZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="hDqTCNSOfsg=" SSIS:IV="9qiGhmUQf8OOY7l8teTDaA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">eJKG/T76po8WWfUdLd82RwDMGDHFVcBo1A2xveYiaz/vK7k7y1HJhGE590ks5uhfKDxvrCp3jUVPZ1/L1+FCgTHOSOn7ofDJncv4XoU3jfzvJ364mLTGULFy9KvPfewO6SsKpanRzOvJWuWeQbqX9+WPoXEPyyRHuNM8U7gy2Y/0bmjyRXE2fpG8+SuuwzOU</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="YicK1fDKRp4=" SSIS:IV="wU7W/GGANxY+ugThb38xdA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">iDmIZ7SRoVHgcE3FMklNE22Qfs/AjPzBJsmt4f9NOaAt5p5ueZb7I1eVQvMvQlldGMPKiGqvImnVrNr60cyjv2gjoFg12PNcjgUOdw/Q9jJurSLoPaXaYdjh4hPYhTTXQc3Mreja/pA8N7BYGBY5WYGGLguSj67opkRXDOmuPH2S6gc7X64LsHKqvzNByJre</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -46,6 +46,7 @@
           <SSIS:Package SSIS:Name="DimEntidad_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimGrupo_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimUbicacion_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimUsuario_cargaDiferencial.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DWH_Local.conmgr" />
@@ -477,10 +478,10 @@
                 <SSIS:Property SSIS:Name="Name">DimGrupo_cargaDiferencial</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">39</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{DFCD19F6-FBAD-4091-906A-520F6441A168}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DBD987AF-5658-47B4-A955-F3EFC97A5965}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -494,10 +495,27 @@
                 <SSIS:Property SSIS:Name="Name">DimUbicacion_cargaDiferencial</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">36</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F82AF47B-7606-4232-B0F4-AD5673F1B7C4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D0355FD6-4A44-4C74-A690-3E80E202D1CB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimUsuario_cargaDiferencial.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{36D80B8C-CD25-47E1-AA86-3EC39C2EAE79}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimUsuario_cargaDiferencial</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">32</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7C16F802-6CCC-48F6-9537-1770ABE14F3B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
