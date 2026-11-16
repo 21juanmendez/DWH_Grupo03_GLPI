@@ -12,8 +12,8 @@
   DTS:ObjectName="DimTipoSolucion_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{B5684D3B-AAAD-4640-95CE-1C8098F472F7}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{A7E1FCC0-D7D9-49FA-8049-7E2E398193C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -419,13 +419,13 @@ ORDER BY id;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="241.6,41.6"
-          Id="Package\Limpieza de tabla DimTipoSolucion"
-          TopLeft="176.666657014026,79.7333327788777" />
-        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
           TopLeft="319.999982515971,186.333332037595" />
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\Limpieza de tabla DimTipoSolucion"
+          TopLeft="176.666657014026,79.7333327788777" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="297.466657014026,121.333332778878">

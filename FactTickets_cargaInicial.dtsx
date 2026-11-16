@@ -12,8 +12,8 @@
   DTS:ObjectName="FactTickets_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{BE094E0C-E6D1-452D-8FC0-60E269FF4336}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{1F4F566F-4C32-4119-A6A2-22527184AF51}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

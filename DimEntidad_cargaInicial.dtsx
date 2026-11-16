@@ -12,8 +12,8 @@
   DTS:ObjectName="DimEntidad_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{41DCD2FE-FE41-4FA5-9ACF-A354F72D3D2D}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{4AB32642-C2A4-4C8C-BAAA-0E9633E6947E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

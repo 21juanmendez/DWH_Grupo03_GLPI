@@ -12,8 +12,8 @@
   DTS:ObjectName="DimGrupo_cargaDiferencial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{DBD987AF-5658-47B4-A955-F3EFC97A5965}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{4BD7D79E-E1F0-4DEF-9BDB-2FF0F71BDC66}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

@@ -12,8 +12,8 @@
   DTS:ObjectName="Orquestador_cargaDiferencial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E9C78FF6-FD24-47DE-8321-4B5B856B218F}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{32C048C5-27E7-4757-BA8A-2BBA0E52CC51}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -151,6 +151,10 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\DimCategoria"
+          TopLeft="442.499975822867,51.9999996383985" />
+        <NodeLayout
           Size="132,41.6"
           Id="Package\DimEntidad"
           TopLeft="73.3333293265767,52.8666662990385" />
@@ -162,10 +166,6 @@
           Size="142.4,41.6"
           Id="Package\DimUbicacion"
           TopLeft="249.166653052801,51.9999996383985" />
-        <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\DimCategoria"
-          TopLeft="442.499975822867,51.9999996383985" />
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\DimUsuario"

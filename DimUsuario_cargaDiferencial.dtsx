@@ -12,8 +12,8 @@
   DTS:ObjectName="DimUsuario_cargaDiferencial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{C213945C-C906-4305-A013-4766527677DE}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{17DE8AAF-61D4-4E1C-B340-CAAF0989DC6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1784,12 +1784,20 @@ ORDER BY u.id</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SRC_GLPI_users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\LKP_DimUsuario">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1799,16 +1807,8 @@ ORDER BY u.id</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\SRC_GLPI_users">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>

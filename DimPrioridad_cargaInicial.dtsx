@@ -12,8 +12,8 @@
   DTS:ObjectName="DimPrioridad_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{6BFC0A2D-557E-4A59-BA88-F6A1927CF628}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{6EA388BF-44F2-4B7C-9FAC-3461F1D0D063}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

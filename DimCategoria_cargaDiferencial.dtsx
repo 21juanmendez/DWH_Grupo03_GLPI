@@ -12,8 +12,8 @@
   DTS:ObjectName="DimCategoria_cargaDiferencial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{7AB9C802-01A3-4C18-9F60-7E9C838FDD93}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{17D302F8-E017-4FEE-A7DB-408C25927006}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1186,7 +1186,7 @@ ORDER BY c.id;</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1196,7 +1196,7 @@ ORDER BY c.id;</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

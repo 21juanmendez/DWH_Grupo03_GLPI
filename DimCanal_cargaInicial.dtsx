@@ -12,8 +12,8 @@
   DTS:ObjectName="DimCanal_cargaInicial"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{64FE7CFF-D70D-42FB-A206-CF49C770C3D7}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{C4E75000-D60E-4C84-87BE-0A060B2F4959}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />

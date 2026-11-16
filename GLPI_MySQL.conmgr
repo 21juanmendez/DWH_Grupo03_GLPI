@@ -13,13 +13,13 @@
     DTS:Name="UserName">@[$Project::GlpiUser]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;database=glpidb;">
+      DTS:ConnectionString="server=32.196.220.213;user id=glpiuser;Initial Catalog=glpidb;database=glpidb;">
       <DTS:Password
         DTS:Name="password"
         Sensitive="1"
-        p4:Salt="GWRJ3VtVyf8="
-        p4:IV="j47kyy2H0AU8WAKCPA1YcQ=="
-        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">JWADneRZhvTHWLH5B31L+lseuLdkp+KmnAj9tDw8GaufnbN7REWfv6+LHYzAfemhBoHHVKizreBrzJ9e/mFvevq12+EfOFAangVerXakICK0ukhBjVcDu4P/Xs8TJbyJdh8USrboeP/xv/GERbGWog4niUDhbYKIPyA2EtYl/5g=</DTS:Password>
+        p4:Salt="V3ZcHWJqFHM="
+        p4:IV="GzF10TQD92LPHvPx2MMYew=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">DcMP5uV+YIgytVkxlTrxOoRqLOwQ1gHR6emJtIoxXRU3ikdi6S3b5ibQaD6ivSsQkhgbMjAp9p92BkOlVwrMi9PBLaY21jPMBWQvdZAPl8H9kGM2zW4aoUDO3rycQzcpvZUJMj8ctl4zOGbRCj3wE2CaUGuy5WC/gbZYpW7iy8c=</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
