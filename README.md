@@ -1,13 +1,13 @@
 # DWH_Grupo03_GLPI
 
-Data Warehouse para analitica de soporte TI / mesa de ayuda, construido a partir de **GLPI** (Gestionnaire Libre de Parc Informatique). Proyecto academico — Universidad de El Salvador, curso de especializacion en Ingenieria de Datos, Grupo 03.
+Data Warehouse para analítica de soporte TI / mesa de ayuda, construido a partir de **GLPI** (Gestionnaire Libre de Parc Informatique). Proyecto académico — Universidad de El Salvador, curso de especialización en Ingeniería de Datos, Grupo 03.
 
 **Integrantes:** José Oved Chávez Vásquez, Juan Ernesto Méndez Nerio, William Alexander Ventura González.
 
 ## Contenido
 
 - [Fases del proyecto](#fases-del-proyecto)
-- [Fuentes de datos — IMPORTANTE](#fuentes-de-datos--importante)
+- [Fuente de datos](#fuente-de-datos)
 - [Requisitos previos](#requisitos-previos)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Estado actual](#estado-actual)
@@ -18,7 +18,6 @@ Data Warehouse para analitica de soporte TI / mesa de ayuda, construido a partir
 - [Reglas de diseño del modelo dimensional](#reglas-de-diseño-del-modelo-dimensional)
 - [Plan de implementación del ETL](#plan-de-implementación-del-etl)
 - [Conexiones SSIS: proyecto compartido y parámetros](#conexiones-ssis-proyecto-compartido-y-parámetros)
-- [Flujo de trabajo en equipo](#flujo-de-trabajo-en-equipo)
 
 ## Fases del proyecto
 
@@ -33,7 +32,7 @@ GLPI 11 desplegado en AWS EC2: `glpi-proyecto03.duckdns.org` / `32.196.220.213:3
 
 - **SQL Server** (instancia local, Windows Auth) + **SSMS** para administrar el DWH.
 - **Visual Studio Community** + extensión **SSDT** (SQL Server Data Tools) con el proyecto "Integration Services Project" habilitado, para construir los paquetes ETL (`DWH_Grupo03_GLPI.dtproj`).
-- Acceso a la base GLPI en AWS (credenciales las tiene cada integrante por separado, no están en este repo).
+- La contraseña del proyecto SSIS, necesaria para desencriptar las credenciales de GLPI que vienen cifradas en `Project.params` (se comparte por un canal privado, no está en este repo).
 
 ## Estructura del repositorio
 
@@ -55,6 +54,19 @@ sql/
   SP_DimGrupo.sql             -- sp_DimGrupo_Update (SCD1)
   SP_DimUbicacion.sql         -- sp_DimUbicacion_Update (SCD1)
   SP_DimUsuario.sql           -- sp_DimUsuario_SCD2 (SCD1/SCD2 híbrido)
+  extracion_origen/           -- Consultas MySQL de extracción contra GLPI, una por tabla destino
+                                 (las mismas que usa el origen ADO.NET de cada paquete de carga)
+    bridge_ticket_tecnico.sql
+    dim_canal.sql
+    dim_categoria.sql
+    dim_entidad.sql
+    dim_grupo.sql
+    dim_prioridad.sql
+    dim_sla.sql
+    dim_tipo_solucion.sql
+    dim_ubicacion.sql
+    dim_usuario.sql
+    fact_tickets.sql
 
 DWH_Grupo03_GLPI.dtproj       -- Proyecto SSIS (paquetes ETL)
 Project.params                -- Parámetros de proyecto SSIS (servidor/usuario/contraseña de GLPI y del DWH local)
@@ -127,7 +139,7 @@ Esquema en estrella (metodología Kimball), un solo proceso de negocio: **la ges
 - **SCD híbrido (1 y 2 en la misma tabla):** `DimUsuario` — `Login`, `NombreCompleto`, `Telefono`, `Categoria` y `Activo` se tratan como SCD1 (se sobrescriben); `Perfil`, `Ubicacion` y `Titulo` se tratan como SCD2 (se versiona: fila vieja se cierra con `FechaFin`/`EsVigente='No'`, se inserta fila nueva vigente).
 - **Catálogos fijos (sin ETL):** `DimTipo` y `DimEstado` — GLPI no los representa como tabla real en MySQL, son enums definidos en el código PHP de la aplicación; se cargan una sola vez junto con el DDL.
 - **Fact table — snapshot acumulativo:** `FactTickets` tiene una sola fila por ticket que se actualiza a medida que el ticket avanza en su ciclo de vida (creación → toma de cargo → solución → cierre), a diferencia de un snapshot periódico o un fact transaccional de un solo evento.
-- **Filas bolsón (`-1`, y `-2` en `DimTipoSolucion`):** precargadas en 7 dimensiones + el bridge, para los casos donde el ticket no tiene un valor real asociado (sin técnico, sin SLA, sin categoría, etc.) — ver también la sección de reglas de diseño más abajo.
+- **Filas bolsón (`-1`, `-2` en `DimTipoSolucion` y `99991231` = "Pendiente" en `DimFecha`):** precargadas en 7 dimensiones + el bridge, para los casos donde el ticket no tiene un valor real asociado (sin técnico, sin SLA, sin categoría, etc.) — ver también la sección de reglas de diseño más abajo.
 
 ## Reglas de negocio
 
@@ -159,7 +171,7 @@ Cuando un ticket tiene N técnicos asignados simultáneamente (`glpi_tickets_use
 - `GrupoSoporteKey`: el primer grupo (`type=2`) en `glpi_groups_tickets` asociado al ticket; `-1` si no tiene grupo asignado.
 
 **Estado final del ticket**
-`DimEstado.EsEstadoFinal = 'Sí'` para los estados 5 (Resuelto) **y** 6 (Cerrado) — ambos cuentan como ticket resuelto para efectos de `CantidadTicketsResueltos` (el denominador de SLA Compliance, Tasa de reapertura y FCR), no solo Cerrado.
+`DimEstado.EsEstadoFinal = 'Si'` para los estados 5 (Resuelto) **y** 6 (Cerrado) — ambos cuentan como ticket resuelto para efectos de `CantidadTicketsResueltos` (el denominador de SLA Compliance, Tasa de reapertura y FCR), no solo Cerrado.
 
 **KPIs derivados (no se almacenan, se calculan en la herramienta de BI):**
 
@@ -180,7 +192,7 @@ Cuando un ticket tiene N técnicos asignados simultáneamente (`glpi_tickets_use
 
 ## Reglas de diseño del modelo dimensional
 
-Decisiones de diseño que no deben cambiarse sin coordinar con el equipo, para no deshacer correcciones ya aplicadas:
+Decisiones de diseño aplicadas en el modelo físico y en el ETL:
 
 - **Todas las columnas de las dimensiones son `NOT NULL`**, sin excepción. Cualquier valor vacío del origen se sustituye por un default o por una fila bolsón.
 - **`DimUsuario.FechaFin` usa `9999-12-31`** para la versión vigente (SCD2), nunca `NULL`.
@@ -188,7 +200,7 @@ Decisiones de diseño que no deben cambiarse sin coordinar con el equipo, para n
 - **`DimTipo` y `DimEstado` NO tienen columna de llave de negocio (`*_origen`)**. Esos valores no existen como tabla en GLPI, son enums fijos definidos en el código PHP de la aplicación. La llave subrogada representa directamente el código de GLPI.
 - **`DimEstado.EsEstadoFinal = 'Si'` para status 5 (Resuelto) Y 6 (Cerrado)**, no solo Cerrado.
 - **`DimPrioridad` es una *junk dimension* real (combinación urgencia × impacto × prioridad), no un catálogo fijo de enums simples.** Se carga una sola vez, en su propio paquete (`DimPrioridad_cargaInicial.dtsx`), con el producto cartesiano completo de las 150 combinaciones posibles (5 urgencias × 5 impactos × 6 prioridades). `FactTickets` únicamente hace un Lookup de lectura contra esta tabla ya poblada (ver [Reglas de negocio](#reglas-de-negocio)).
-- **Filas bolsón (`-1`, y `-2` en `DimTipoSolucion`)** ya precargadas en 7 dimensiones + el bridge, para los casos donde GLPI usa `0` en vez de `NULL` para indicar "sin valor".
+- **Filas bolsón (`-1`, `-2` en `DimTipoSolucion` y `99991231` = "Pendiente" en `DimFecha`)** ya precargadas en 7 dimensiones + el bridge, para los casos donde GLPI usa `0` en vez de `NULL` para indicar "sin valor".
 - **`BridgeTicketTecnico` no tiene Foreign Key física desde `FactTickets.ConjuntoTecnicosKey`** (no es posible: esa columna no es única por sí sola en el bridge). Por eso el **orden de carga en el ETL es crítico**: `BridgeTicketTecnico` debe estar completamente cargado antes de correr el paquete de `FactTickets`, o pueden quedar referencias huérfanas sin que la base de datos lo detecte.
 - **Al insertar la fila bolsón manualmente con `IDENTITY_INSERT ON`, hay que hacer `DBCC CHECKIDENT RESEED` de nuevo después.** SQL Server actualiza el contador del `IDENTITY` al valor que insertaste explícitamente (ej. `-1`), así que la siguiente fila real insertada automáticamente por el Data Flow recibiría `0` en vez de `1` si no se corrige. Esto causó un bug real (duplicados en `DimCategoria` porque el filtro `WHERE CategoriaKey > 0` del Lookup excluía silenciosamente la fila con clave `0`). El patrón correcto en la tarea "Limpieza de tabla" de cualquier dimensión que precargue su bolsón así:
   ```sql
@@ -201,13 +213,13 @@ Decisiones de diseño que no deben cambiarse sin coordinar con el equipo, para n
 
   DBCC CHECKIDENT('DimX', RESEED, 0);  -- <- este segundo RESEED es el que faltaba
   ```
-  Ya corregido en `DimCategoria_cargaInicial` y `DimUbicacion_cargaInicial`. Si algún paquete nuevo sigue este mismo patrón (bolsón insertado a mano dentro del mismo Execute SQL Task de limpieza), no olvidar el segundo `RESEED`.
+  Este patrón se aplica en las tareas de limpieza de `DimCategoria_cargaInicial` y `DimUbicacion_cargaInicial`.
 
 ## Plan de implementación del ETL
 
 **Ya completado en su totalidad** — se deja esta sección como referencia del orden de dependencias real que se siguió para construir los paquetes, útil para entender por qué el ETL está dividido así y en qué orden debe ejecutarse (es el mismo orden que automatiza `Orquestador_cargaInicial.dtsx`).
 
-El orden de construcción no es arbitrario: cada paso depende de que el anterior esté listo.
+El orden de construcción no es arbitrario: algunos pasos dependen de que otros estén listos (las dependencias obligatorias se resumen al final de esta sección).
 
 ### 1. `DimFecha`
 No depende de nada — es un script que genera fechas calculadas (día, mes, año, trimestre...), no se conecta a GLPI. Se hace primero porque **4 columnas de `FactTickets`** apuntan a esta dimensión (fecha de creación, toma de cargo, solución y cierre).
@@ -241,7 +253,7 @@ Orquesta todos los anteriores, en este mismo orden, automáticamente.
 **Dependencias duras (único orden obligatorio):**
 `DimUsuario` → `BridgeTicketTecnico` → `FactTickets`, y **todas** las dimensiones → `FactTickets`.
 
-Todo lo demás (pasos 3, 4, 5, y `DimUsuario` en el 6) se puede repartir y trabajar **en paralelo** entre el equipo, siempre que el paso 2 (la conexión) ya esté lista.
+El resto de las dimensiones (pasos 3, 4, 5 y 6) no dependen entre sí; solo requieren que la conexión del paso 2 esté disponible.
 
 ## Conexiones SSIS: proyecto compartido y parámetros
 
@@ -249,14 +261,15 @@ Todo lo demás (pasos 3, 4, 5, y `DimUsuario` en el 6) se puede repartir y traba
 
 Al principio cada paquete `.dtsx` tenía su propia conexión local (servidor, usuario y contraseña escritos directo en el paquete). Eso generaba dos problemas al compartir por Git:
 
-1. **Servidores hardcodeados distintos por persona** (`Data Source=JOSE`, conexión sin servidor en la de William, etc.) — cada quien tenía que editar el paquete a mano después de cada `git pull`.
+1. **Servidores hardcodeados distintos por integrante** (cada paquete apuntaba al nombre de la máquina de quien lo creó) — había que editar las conexiones a mano después de cada `git pull`.
 2. **Contraseñas cifradas con la llave de Windows de quien las guardó** (`ProtectionLevel = EncryptSensitiveWithUserKey`, el valor por defecto de SSIS): cuando otro integrante bajaba el paquete, Visual Studio no podía descifrarlas ("Error al descifrar un nodo XML cifrado"), porque esa encriptación está atada al usuario de Windows de quien la guardó, no a la persona que la abre.
 
 La solución fue centralizar todo en **2 conexiones de proyecto compartidas** + **parámetros de proyecto**, en vez de que cada paquete tenga su propia configuración.
 
 ### Cómo quedó armado
 
-- **`ProtectionLevel` del proyecto = `EncryptSensitiveWithPassword`**, con una contraseña compartida por el equipo (no ligada al usuario de Windows de nadie). Cualquiera que sepa la contraseña puede abrir el proyecto en su propia máquina.
+- **`ProtectionLevel` del proyecto = `EncryptSensitiveWithPassword`**, con una contraseña compartida por el equipo (no ligada al usuario de Windows de nadie), distinta de la contraseña de MySQL de GLPI. Cualquiera que sepa la contraseña puede abrir el proyecto en su propia máquina. La contraseña no se publica en el repositorio; se comparte por un canal privado.
+- **El proyecto y todos los paquetes deben tener la misma contraseña.** Aunque los paquetes no guardan datos cifrados propios (todo lo sensible vive en `Project.params` y `GLPI_MySQL.conmgr`), Visual Studio compara la contraseña de cada paquete con la del proyecto al compilar. Si uno no coincide, la compilación falla con "Error al comprobar la coherencia del proyecto" indicando el paquete.
 - **`Project.params`** (parámetros de proyecto): 6 valores centralizados, uno de ellos (`GlpiPassword`) marcado como *Sensible*, lo que hace que su valor real se guarde cifrado con AES-256 dentro del propio archivo (solo desencriptable con el `ProtectionLevel` de arriba):
 
   | Parámetro | Contiene |
@@ -269,27 +282,13 @@ La solución fue centralizar todo en **2 conexiones de proyecto compartidas** + 
   | `LocalDatabase` | nombre de la base del DWH local (`DWH_Grupo03_GLPI`) |
 
 - **2 conexiones de proyecto** (`GLPI_MySQL.conmgr` y `DWH_Local.conmgr`), visibles automáticamente en todos los paquetes del proyecto, cuyas propiedades (`ServerName`, `UserName`, `Password`, `InitialCatalog`) están enlazadas por **expresión** a esos parámetros (ej. `@[$Project::GlpiServer]`) en vez de tener un valor fijo escrito.
-- Los 5 paquetes ya no tienen conexiones propias: todos sus componentes (orígenes, destinos, Execute SQL Task, Lookup, OLE DB Command) apuntan a `GLPI_MySQL` / `DWH_Local`.
+- Ningún paquete tiene conexiones propias: todos sus componentes (orígenes, destinos, Execute SQL Task, Lookup, OLE DB Command) apuntan a `GLPI_MySQL` / `DWH_Local`.
 
 **Decisión del equipo:** `Project.params` **sí se sube a Git** con los valores reales ya llenos (incluyendo la contraseña, cifrada). Se optó por esto en vez de excluirlo porque los valores son los mismos para todo el equipo (mismo servidor GLPI compartido, misma convención de base local) — no hay nada "personal" que cada quien deba configurar distinto.
 
-### Qué tiene que hacer el equipo al bajar estos cambios (José y William)
+### Cómo abrir y ejecutar el proyecto
 
-1. `git pull origin master`.
-2. Abrir el proyecto en Visual Studio. Al abrirlo (o al abrir cualquier paquete), va a pedir la **contraseña del proyecto** para desencriptar los datos sensibles — es la misma contraseña que ya usan para conectarse a GLPI.
+1. Clonar el repositorio.
+2. Abrir el proyecto en Visual Studio. Al abrirlo (o al abrir cualquier paquete), va a pedir la **contraseña del proyecto** para desencriptar los datos sensibles (la contraseña compartida del equipo, no la de MySQL).
 3. Nada más que configurar: las conexiones (`GLPI_MySQL`, `DWH_Local`) y los parámetros ya vienen listos en el repositorio. No hace falta crear conexiones nuevas ni escribir contraseñas en ningún paquete.
-4. Probar ejecutando cualquiera de los 5 paquetes para confirmar que todo corre bien en su máquina (debería, ya que `LocalServer=localhost` apunta a la instancia local de cada quien).
-
-### Cómo crear un paquete `.dtsx` nuevo de aquí en adelante
-
-1. Agregar el paquete (clic derecho en "Paquetes SSIS" → Agregar → Nuevo elemento SSIS).
-2. **No crear conexiones locales nuevas.** En cada Origen/Destino/Execute SQL Task, seleccionar la conexión de proyecto que corresponda: `GLPI_MySQL` para leer de GLPI, `DWH_Local` para escribir en el DWH.
-3. **Sincronizar el `ProtectionLevel` del paquete nuevo**: seleccionarlo en el Explorador de soluciones (sin abrirlo) → ventana de Propiedades (F4) → `ProtectionLevel` → `EncryptSensitiveWithPassword` → escribir la contraseña compartida. Un paquete nuevo nace con un `ProtectionLevel` que normalmente no coincide con el del proyecto, y si no se sincroniza, Visual Studio marca "Error al comprobar la coherencia del proyecto" al compilar/ejecutar.
-4. Guardar, probar la ejecución, y hacer commit normalmente.
-
-## Flujo de trabajo en equipo
-
-- Cada quien trabaja en su propia rama (`juan`, `jose`, `william`).
-- Antes de empezar algo nuevo: `git pull origin master` para traer lo último.
-- Cuando una parte está lista y probada: push directo a `master` (sin Pull Request formal) y avisar al grupo para que hagan `pull`.
-- Para minimizar choques, repartirse por partes distintas del proyecto cuando se pueda (ej. cada quien un grupo de dimensiones distinto en los pasos 3-6).
+4. Probar ejecutando cualquiera de los paquetes (o un orquestador) para confirmar que todo corre bien en su máquina (debería, ya que `LocalServer=localhost` apunta a la instancia local de cada quien).
